@@ -15,6 +15,7 @@
 		0E2C29D72967E75900305639 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E2C29D52967E75900305639 /* LaunchScreen.storyboard */; };
 		0E4D5A17296989FD00265762 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D5A16296989FD00265762 /* UIColor+Extension.swift */; };
 		0E4D5A1929698A5500265762 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E4D5A1829698A5500265762 /* Colors.xcassets */; };
+		0E4D5A1D2969CDBF00265762 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D5A1C2969CDBF00265762 /* BaseVC.swift */; };
 		17E7904E4579EE4203C52E2D /* Pods_SecureMarshmallow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A93993F00FB6F77389B77A /* Pods_SecureMarshmallow.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		0E2C29D82967E75900305639 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E4D5A16296989FD00265762 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		0E4D5A1829698A5500265762 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		0E4D5A1C2969CDBF00265762 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		18A93993F00FB6F77389B77A /* Pods_SecureMarshmallow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecureMarshmallow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39C9BCDA191053BEE21788B0 /* Pods-SecureMarshmallow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecureMarshmallow.release.xcconfig"; path = "Target Support Files/Pods-SecureMarshmallow/Pods-SecureMarshmallow.release.xcconfig"; sourceTree = "<group>"; };
 		57D3FD8905F462A788D2F5C3 /* Pods-SecureMarshmallow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecureMarshmallow.debug.xcconfig"; path = "Target Support Files/Pods-SecureMarshmallow/Pods-SecureMarshmallow.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				0E2C29C72967E75800305639 /* AppDelegate.swift */,
 				0E2C29C92967E75800305639 /* SceneDelegate.swift */,
 				0E2C29CB2967E75800305639 /* ViewController.swift */,
+				0E4D5A1C2969CDBF00265762 /* BaseVC.swift */,
 				0E4D5A15296989EE00265762 /* Extensions */,
 				0E2C29D32967E75900305639 /* Assets.xcassets */,
 				0E4D5A1829698A5500265762 /* Colors.xcassets */,
@@ -221,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E2C29D22967E75800305639 /* SecureMarshmallow.xcdatamodeld in Sources */,
+				0E4D5A1D2969CDBF00265762 /* BaseVC.swift in Sources */,
 				0E2C29CC2967E75800305639 /* ViewController.swift in Sources */,
 				0E2C29C82967E75800305639 /* AppDelegate.swift in Sources */,
 				0E2C29CA2967E75800305639 /* SceneDelegate.swift in Sources */,

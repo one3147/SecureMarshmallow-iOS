@@ -16,7 +16,8 @@ class ViewController: UIViewController {
     
     private let errorTimer = UILabel().then {
         $0.textAlignment = .center
-        $0.textColor = .systemBlue
+        $0.textColor = .white
+        $0.font = .systemFont(ofSize: 40, weight: .bold)
     }
     
     
@@ -33,19 +34,40 @@ class ViewController: UIViewController {
         self.setupPossibleBackgroundTimer()
     }
     
+//    private func setupPossibleBackgroundTimer() {
+//        let startTime = Date()
+//
+//        let timer = Observable<Int>.interval(
+//            .seconds(1),
+//            scheduler: MainScheduler.instance
+//        )
+//        timer.withUnretained(self)
+//            .do(onNext: { weakSelf, countValue in
+//                let elapseSeconds = Date().timeIntervalSince(startTime)
+//                weakSelf.errorTimer.text = "\(Int(elapseSeconds))초"
+//            })
+//                .subscribe()
+//                .disposed(by: disposeBag)
+//    }
+    
     private func setupPossibleBackgroundTimer() {
-        let startTime = Date()
+//        let startTime = Date()
         
-        let timer = Observable<Int>.interval(
-            .seconds(1),
-            scheduler: MainScheduler.instance
-        )
-        timer.withUnretained(self)
-            .do(onNext: { weakSelf, countValue in
-                let elapseSeconds = Date().timeIntervalSince(startTime)
-                weakSelf.errorTimer.text = "타이머2: \(Int(elapseSeconds))초"
-            })
-                .subscribe()
-                .disposed(by: disposeBag)
+        let format = DateFormatter()
+        format.dateFormat = "HH:mm"
+        
+        
+        
+//        let timer = Observable<Int>.interval(
+//            .seconds(1),
+//            scheduler: MainScheduler.instance
+//        )
+//        timer.withUnretained(self)
+//            .do(onNext: { weakSelf, countValue in
+//                let elapseSeconds = Date().timeIntervalSince(startTime)
+//                weakSelf.errorTimer.text = "\(Int(elapseSeconds))초"
+//            })
+//                .subscribe()
+//                .disposed(by: disposeBag)
     }
 }
