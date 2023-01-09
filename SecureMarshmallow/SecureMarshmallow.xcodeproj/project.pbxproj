@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		0E2C29C82967E75800305639 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2C29C72967E75800305639 /* AppDelegate.swift */; };
 		0E2C29CA2967E75800305639 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2C29C92967E75800305639 /* SceneDelegate.swift */; };
-		0E2C29CC2967E75800305639 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2C29CB2967E75800305639 /* ViewController.swift */; };
+		0E2C29CC2967E75800305639 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2C29CB2967E75800305639 /* ErrorViewController.swift */; };
 		0E2C29D22967E75800305639 /* SecureMarshmallow.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E2C29D02967E75800305639 /* SecureMarshmallow.xcdatamodeld */; };
 		0E2C29D42967E75900305639 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E2C29D32967E75900305639 /* Assets.xcassets */; };
 		0E2C29D72967E75900305639 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E2C29D52967E75900305639 /* LaunchScreen.storyboard */; };
+		0E3FCA66296CD26600474C83 /* FireLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E3FCA65296CD26600474C83 /* FireLottie.json */; };
+		0E3FCA69296CD4EA00474C83 /* ErrorViewController+layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCA68296CD4EA00474C83 /* ErrorViewController+layout.swift */; };
 		0E4D5A17296989FD00265762 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D5A16296989FD00265762 /* UIColor+Extension.swift */; };
 		0E4D5A1929698A5500265762 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E4D5A1829698A5500265762 /* Colors.xcassets */; };
 		0E4D5A1D2969CDBF00265762 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D5A1C2969CDBF00265762 /* BaseVC.swift */; };
@@ -25,11 +27,13 @@
 		0E2C29C42967E75800305639 /* SecureMarshmallow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecureMarshmallow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E2C29C72967E75800305639 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E2C29C92967E75800305639 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0E2C29CB2967E75800305639 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0E2C29CB2967E75800305639 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		0E2C29D12967E75800305639 /* SecureMarshmallow.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SecureMarshmallow.xcdatamodel; sourceTree = "<group>"; };
 		0E2C29D32967E75900305639 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E2C29D62967E75900305639 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E2C29D82967E75900305639 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E3FCA65296CD26600474C83 /* FireLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FireLottie.json; sourceTree = "<group>"; };
+		0E3FCA68296CD4EA00474C83 /* ErrorViewController+layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ErrorViewController+layout.swift"; sourceTree = "<group>"; };
 		0E4D5A16296989FD00265762 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		0E4D5A1829698A5500265762 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		0E4D5A1C2969CDBF00265762 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
@@ -75,8 +79,9 @@
 			children = (
 				0E2C29C72967E75800305639 /* AppDelegate.swift */,
 				0E2C29C92967E75800305639 /* SceneDelegate.swift */,
-				0E2C29CB2967E75800305639 /* ViewController.swift */,
-				0E4D5A1C2969CDBF00265762 /* BaseVC.swift */,
+				0E3FCA67296CD4D600474C83 /* Error */,
+				0E3FCA64296CD25B00474C83 /* Lottie */,
+				0E3FCA63296CD24A00474C83 /* Base */,
 				0E4D5A15296989EE00265762 /* Extensions */,
 				0E2C29D32967E75900305639 /* Assets.xcassets */,
 				0E4D5A1829698A5500265762 /* Colors.xcassets */,
@@ -85,6 +90,31 @@
 				0E2C29D02967E75800305639 /* SecureMarshmallow.xcdatamodeld */,
 			);
 			path = SecureMarshmallow;
+			sourceTree = "<group>";
+		};
+		0E3FCA63296CD24A00474C83 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0E4D5A1C2969CDBF00265762 /* BaseVC.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		0E3FCA64296CD25B00474C83 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				0E3FCA65296CD26600474C83 /* FireLottie.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		0E3FCA67296CD4D600474C83 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				0E2C29CB2967E75800305639 /* ErrorViewController.swift */,
+				0E3FCA68296CD4EA00474C83 /* ErrorViewController+layout.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		0E4D5A15296989EE00265762 /* Extensions */ = {
@@ -176,6 +206,7 @@
 			files = (
 				0E4D5A1929698A5500265762 /* Colors.xcassets in Resources */,
 				0E2C29D72967E75900305639 /* LaunchScreen.storyboard in Resources */,
+				0E3FCA66296CD26600474C83 /* FireLottie.json in Resources */,
 				0E2C29D42967E75900305639 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,7 +264,8 @@
 				0E4D5A21296B8DDA00265762 /* Int+Extension.swift in Sources */,
 				0E2C29D22967E75800305639 /* SecureMarshmallow.xcdatamodeld in Sources */,
 				0E4D5A1D2969CDBF00265762 /* BaseVC.swift in Sources */,
-				0E2C29CC2967E75800305639 /* ViewController.swift in Sources */,
+				0E2C29CC2967E75800305639 /* ErrorViewController.swift in Sources */,
+				0E3FCA69296CD4EA00474C83 /* ErrorViewController+layout.swift in Sources */,
 				0E2C29C82967E75800305639 /* AppDelegate.swift in Sources */,
 				0E2C29CA2967E75800305639 /* SceneDelegate.swift in Sources */,
 				0E4D5A17296989FD00265762 /* UIColor+Extension.swift in Sources */,

@@ -9,8 +9,9 @@ import UIKit
 import RxSwift
 import SnapKit
 import Then
+import Lottie
 
-class ViewController: UIViewController {
+class ErrorViewController: UIViewController {
     
     var started = false
     var isTimerRunning = false
@@ -23,8 +24,8 @@ class ViewController: UIViewController {
     var colorCell = false
     
     private let disposeBag = DisposeBag()
-    
-    private let errorTimer = UILabel().then {
+    internal var animationView: LottieAnimationView?
+    internal let errorTimer = UILabel().then {
         $0.textAlignment = .center
         $0.textColor = .white
         $0.font = .systemFont(ofSize: 40, weight: .bold)
@@ -44,38 +45,40 @@ class ViewController: UIViewController {
         self.view.addSubview(errorTimer)
         
         self.view.addSubview(testTimer)
+        startTimer()
+        
+        
+        animationView = .init(name: "FireLottie")
+                
+        animationView!.loopMode = .loop
+                
+        animationView!.animationSpeed = 0.1
+        
+        animationView!.center = view.center
+        
+        animationView!.contentMode = .scaleAspectFill
+        
+        view.addSubview(animationView!)
+        
+        self.animationView!.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(180)
+            $0.centerX.equalToSuperview()
+            $0.width.height.equalTo(155)
+        }
         
         self.errorTimer.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
         }
         
         self.testTimer.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
+            $0.top.equalTo(animationView!.snp.bottom).offset(30.0)
+            $0.centerX.equalToSuperview()
         }
         
-        startTimer()
-        
-//        self.setupPossibleBackgroundTimer()
-        
+        animationView!.play()
+        layout()
+                
     }
-    
-//    private func setupPossibleBackgroundTimer() {
-//        let startTime = Date()
-//
-//        let threeMinutes: Int = 180
-//
-//        let timer = Observable<Int>.interval(
-//            .seconds(1),
-//            scheduler: MainScheduler.instance
-//        )
-//        timer.withUnretained(self)
-//            .do(onNext: { weakSelf, countValue in
-//                let elapseSeconds = Date().timeIntervalSince(startTime)
-//                weakSelf.errorTimer.text = "\(threeMinutes - Int(elapseSeconds))분"
-//            })
-//                .subscribe()
-//                .disposed(by: disposeBag)
-//    }
     
     func startTimer(){
         if mainLapTimer == nil{
@@ -90,7 +93,8 @@ class ViewController: UIViewController {
 
 
     func updateLabel( label : UILabel, counter : Int){
-        testTimer.text = secondsToHourMinuteSecond(seconds: counter)
+        let threeMinutes: Int = 180
+        testTimer.text = secondsToHourMinuteSecond(seconds: Int(threeMinutes - counter))
     }
     
     func secondsToHourMinuteSecond( seconds : Int )->String{
@@ -101,11 +105,33 @@ class ViewController: UIViewController {
     
     
     @objc func mainLapTimerUpdate(){
-        mainLapCounter += 1
+        mainLapCounter -= 1
         updateLabel(label: testTimer, counter: mainLapCounter)
     }
     
     @objc func lapTimerUpdate(){
-        lapCounter += 1
+        lapCounter -= 1
     }
+    
+    func attributes() {
+        
+    }
+    
+    //    private func setupPossibleBackgroundTimer() {
+    //        let startTime = Date()
+    //
+//            let threeMinutes: Int = 180
+    //
+    //        let timer = Observable<Int>.interval(
+    //            .seconds(1),
+    //            scheduler: MainScheduler.instance
+    //        )
+    //        timer.withUnretained(self)
+    //            .do(onNext: { weakSelf, countValue in
+    //                let elapseSeconds = Date().timeIntervalSince(startTime)
+    //                weakSelf.errorTimer.text = "\(threeMinutes - Int(elapseSeconds))분"
+    //            })
+    //                .subscribe()
+    //                .disposed(by: disposeBag)
+    //    }lottieMove
 }
