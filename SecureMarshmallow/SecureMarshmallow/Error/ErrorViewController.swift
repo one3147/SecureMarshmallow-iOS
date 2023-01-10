@@ -109,7 +109,7 @@ class ErrorViewController: UIViewController {
     
     func attributes() {
         animationViewEvent()
-        self.view.backgroundColor = .ErrorColor
+        self.view.backgroundColor = .errorColor
     }
     
     func layout() {
