@@ -1,9 +1,3 @@
-//
-//  ViewController.swift
-//  SecureMarshmallow
-//
-//  Created by 박준하 on 2023/01/06.
-//
 
 import UIKit
 import RxSwift
@@ -13,72 +7,62 @@ import Lottie
 
 class ErrorViewController: UIViewController {
     
-    var lapCounter = 0
-    var mainLapCounter = 0
+    var lapCounter: Int = 0
+    var mainLapCounter: Int = 0
+    
     var lapTimer : Timer?
     var mainLapTimer : Timer?
     
-    var userErrorCount = 3
+    var errorTime: Int = 180
+    var userErrorCount = 0
     
-    private let disposeBag = DisposeBag()
+    internal let disposeBag = DisposeBag()
     internal var animationView: LottieAnimationView?
     
-    private let errorTimer = UILabel().then {
+    internal let errorTimer = UILabel().then {
         $0.textAlignment = .center
         $0.textColor = .white
         $0.font = .systemFont(ofSize: 40, weight: .bold)
     }
     
-    private lazy var waitLabel = UILabel().then {
+    internal lazy var waitLabel = UILabel().then {
         $0.textAlignment = .center
         $0.textColor = .white
         $0.font = .systemFont(ofSize: 20, weight: .regular)
-        $0.text = "누군가 회원님의 계정을 \(userErrorCount)회 입력했습니다\n 조금만 기다려주세요 \n (마쉬멜로는 개인정보를 고려합니다)"
+        $0.text = "누군가 회원님의 계정을 \(errorTimerText(errorTime))회 입력했습니다\n 조금만 기다려주세요 \n (마쉬멜로는 개인정보를 고려합니다)"
         $0.numberOfLines = 0
     }
-
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.view.backgroundColor = .ErrorColor
-        self.view.addSubview(errorTimer)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         self.errorTimer.text = "00:00"
         startTimer()
         
-        
+        animationView!.play()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        attributes()
+        layout()
+    }
+    
+    func animationViewEvent() {
         animationView = .init(name: "FireLottie")
-                
+        
         animationView!.loopMode = .loop
-                
+        
         animationView!.animationSpeed = 0.1
         
         animationView!.center = view.center
         
         animationView!.contentMode = .scaleAspectFill
-                
-        view.addSubview(animationView!)
-        
-        self.view.addSubview(waitLabel)
-        
-        self.animationView!.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(180.0)
-            $0.centerX.equalToSuperview()
-            $0.width.height.equalTo(155)
-        }
-        
-        self.errorTimer.snp.makeConstraints {
-            $0.top.equalTo(animationView!.snp.bottom).offset(30.0)
-            $0.centerX.equalToSuperview()
-        }
-        
-        self.waitLabel.snp.makeConstraints {
-            $0.top.equalTo(errorTimer.snp.bottom).offset(160.0)
-            $0.centerX.equalToSuperview()
-        }
-        
-        animationView!.play()
+    }
+    
+    func errorTimerText(_ errorCountText: Int) -> Int {
+        userErrorCount = errorCountText / 60
+        return userErrorCount
     }
     
     func startTimer(){
@@ -91,10 +75,10 @@ class ErrorViewController: UIViewController {
             RunLoop.current.add(lapTimer!, forMode: .common)
         }
     }
-
-
-    func updateLabel( label : UILabel, counter : Int){
-        let threeMinutes: Int = 10
+    
+    
+    func updateLabel( label : UILabel, counter : Int, time: Int){
+        let threeMinutes: Int = time
         errorTimer.text = secondsToHourMinuteSecond(seconds: Int(threeMinutes - counter))
     }
     
@@ -115,7 +99,7 @@ class ErrorViewController: UIViewController {
     
     @objc func mainLapTimerUpdate(){
         mainLapCounter += 1
-        updateLabel(label: errorTimer, counter: mainLapCounter)
+        updateLabel(label: errorTimer, counter: mainLapCounter, time: errorTime)
     }
     
     @objc func lapTimerUpdate(){
@@ -124,24 +108,29 @@ class ErrorViewController: UIViewController {
     
     
     func attributes() {
-        
+        animationViewEvent()
+        self.view.backgroundColor = .ErrorColor
     }
     
-    //    private func setupPossibleBackgroundTimer() {
-    //        let startTime = Date()
-    //
-//            let threeMinutes: Int = 180
-    //
-    //        let timer = Observable<Int>.interval(
-    //            .seconds(1),
-    //            scheduler: MainScheduler.instance
-    //        )
-    //        timer.withUnretained(self)
-    //            .do(onNext: { weakSelf, countValue in
-    //                let elapseSeconds = Date().timeIntervalSince(startTime)
-    //                weakSelf.errorTimer.text = "\(threeMinutes - Int(elapseSeconds))분"
-    //            })
-    //                .subscribe()
-    //                .disposed(by: disposeBag)
-    //    }lottieMove
+    func layout() {
+        self.view.addSubview(animationView!)
+        self.view.addSubview(errorTimer)
+        self.view.addSubview(waitLabel)
+        
+        self.animationView!.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(180.0)
+            $0.centerX.equalToSuperview()
+            $0.width.height.equalTo(155)
+        }
+        
+        self.errorTimer.snp.makeConstraints {
+            $0.top.equalTo(animationView!.snp.bottom).offset(30.0)
+            $0.centerX.equalToSuperview()
+        }
+        
+        self.waitLabel.snp.makeConstraints {
+            $0.top.equalTo(errorTimer.snp.bottom).offset(160.0)
+            $0.centerX.equalToSuperview()
+        }
+    }
 }
