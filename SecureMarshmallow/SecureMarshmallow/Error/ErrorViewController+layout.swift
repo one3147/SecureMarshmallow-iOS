@@ -10,10 +10,4 @@ import SnapKit
 
 extension ErrorViewController {
     
-    func layout() {
-        animationView?.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(120.0)
-            $0.leading.equalToSuperview().inset(150.0)
-        }
-    }
 }

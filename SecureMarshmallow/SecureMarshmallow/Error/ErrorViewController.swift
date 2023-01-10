@@ -13,28 +13,28 @@ import Lottie
 
 class ErrorViewController: UIViewController {
     
-    var started = false
-    var isTimerRunning = false
     var lapCounter = 0
     var mainLapCounter = 0
     var lapTimer : Timer?
     var mainLapTimer : Timer?
-    var maxIndex = 0
-    var minIndex = 0
-    var colorCell = false
+    
+    var userErrorCount = 3
     
     private let disposeBag = DisposeBag()
     internal var animationView: LottieAnimationView?
-    internal let errorTimer = UILabel().then {
+    
+    private let errorTimer = UILabel().then {
         $0.textAlignment = .center
         $0.textColor = .white
         $0.font = .systemFont(ofSize: 40, weight: .bold)
     }
     
-    private let testTimer = UILabel().then {
+    private lazy var waitLabel = UILabel().then {
         $0.textAlignment = .center
         $0.textColor = .white
-        $0.font = .systemFont(ofSize: 40, weight: .bold)
+        $0.font = .systemFont(ofSize: 20, weight: .regular)
+        $0.text = "누군가 회원님의 계정을 \(userErrorCount)회 입력했습니다\n 조금만 기다려주세요 \n (마쉬멜로는 개인정보를 고려합니다)"
+        $0.numberOfLines = 0
     }
 
     
@@ -44,7 +44,7 @@ class ErrorViewController: UIViewController {
         self.view.backgroundColor = .ErrorColor
         self.view.addSubview(errorTimer)
         
-        self.view.addSubview(testTimer)
+        self.errorTimer.text = "00:00"
         startTimer()
         
         
@@ -57,27 +57,28 @@ class ErrorViewController: UIViewController {
         animationView!.center = view.center
         
         animationView!.contentMode = .scaleAspectFill
-        
+                
         view.addSubview(animationView!)
         
+        self.view.addSubview(waitLabel)
+        
         self.animationView!.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(180)
+            $0.top.equalToSuperview().offset(180.0)
             $0.centerX.equalToSuperview()
             $0.width.height.equalTo(155)
         }
         
         self.errorTimer.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
-        }
-        
-        self.testTimer.snp.makeConstraints {
             $0.top.equalTo(animationView!.snp.bottom).offset(30.0)
             $0.centerX.equalToSuperview()
         }
         
+        self.waitLabel.snp.makeConstraints {
+            $0.top.equalTo(errorTimer.snp.bottom).offset(160.0)
+            $0.centerX.equalToSuperview()
+        }
+        
         animationView!.play()
-        layout()
-                
     }
     
     func startTimer(){
@@ -93,25 +94,34 @@ class ErrorViewController: UIViewController {
 
 
     func updateLabel( label : UILabel, counter : Int){
-        let threeMinutes: Int = 180
-        testTimer.text = secondsToHourMinuteSecond(seconds: Int(threeMinutes - counter))
+        let threeMinutes: Int = 10
+        errorTimer.text = secondsToHourMinuteSecond(seconds: Int(threeMinutes - counter))
     }
     
     func secondsToHourMinuteSecond( seconds : Int )->String{
         let minute = seconds / 60 % 60
         let second = seconds % 60
+        
+        if minute == 0 && second == 0 {
+            // 나중에 뷰추가 후 수정
+            print("비밀번호 호출 이벤트")
+            lapTimer?.invalidate()
+            mainLapTimer?.invalidate()
+        }
+        
         return String(format: "%02i:%02i", minute, second )
     }
     
     
     @objc func mainLapTimerUpdate(){
-        mainLapCounter -= 1
-        updateLabel(label: testTimer, counter: mainLapCounter)
+        mainLapCounter += 1
+        updateLabel(label: errorTimer, counter: mainLapCounter)
     }
     
     @objc func lapTimerUpdate(){
-        lapCounter -= 1
+        lapCounter += 1
     }
+    
     
     func attributes() {
         
