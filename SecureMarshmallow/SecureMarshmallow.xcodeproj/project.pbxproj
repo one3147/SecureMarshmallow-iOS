@@ -17,9 +17,11 @@
 		0E3FCA69296CD4EA00474C83 /* ErrorViewController+layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCA68296CD4EA00474C83 /* ErrorViewController+layout.swift */; };
 		0E4C5CBF296D4E93000878DF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E4C5CBE296D4E93000878DF /* Colors.xcassets */; };
 		0E4C5CC3296D4ECC000878DF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4C5CC2296D4ECC000878DF /* UIColor+Extension.swift */; };
+		0E4C5CC5296D55FA000878DF /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4C5CC4296D55FA000878DF /* PasswordViewController.swift */; };
 		0E4D5A1D2969CDBF00265762 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D5A1C2969CDBF00265762 /* BaseVC.swift */; };
 		0E4D5A1F296B8DAB00265762 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D5A1E296B8DAB00265762 /* TimeInterval+Extension.swift */; };
 		0E4D5A21296B8DDA00265762 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D5A20296B8DDA00265762 /* Int+Extension.swift */; };
+		0E60A221296E608F00AFCF07 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E60A220296E608F00AFCF07 /* StoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,9 +37,11 @@
 		0E3FCA68296CD4EA00474C83 /* ErrorViewController+layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ErrorViewController+layout.swift"; sourceTree = "<group>"; };
 		0E4C5CBE296D4E93000878DF /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		0E4C5CC2296D4ECC000878DF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		0E4C5CC4296D55FA000878DF /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		0E4D5A1C2969CDBF00265762 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		0E4D5A1E296B8DAB00265762 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
 		0E4D5A20296B8DDA00265762 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		0E60A220296E608F00AFCF07 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		39C9BCDA191053BEE21788B0 /* Pods-SecureMarshmallow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecureMarshmallow.release.xcconfig"; path = "Target Support Files/Pods-SecureMarshmallow/Pods-SecureMarshmallow.release.xcconfig"; sourceTree = "<group>"; };
 		57D3FD8905F462A788D2F5C3 /* Pods-SecureMarshmallow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecureMarshmallow.debug.xcconfig"; path = "Target Support Files/Pods-SecureMarshmallow/Pods-SecureMarshmallow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +81,8 @@
 				0E2C29C72967E75800305639 /* AppDelegate.swift */,
 				0E2C29C92967E75800305639 /* SceneDelegate.swift */,
 				0E4C5CBE296D4E93000878DF /* Colors.xcassets */,
+				0E60A222296E609400AFCF07 /* Story */,
+				0E4C5CC6296D55FF000878DF /* Password */,
 				0E3FCA67296CD4D600474C83 /* Error */,
 				0E3FCA64296CD25B00474C83 /* Lottie */,
 				0E3FCA63296CD24A00474C83 /* Base */,
@@ -114,6 +120,14 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		0E4C5CC6296D55FF000878DF /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				0E4C5CC4296D55FA000878DF /* PasswordViewController.swift */,
+			);
+			path = Password;
+			sourceTree = "<group>";
+		};
 		0E4D5A15296989EE00265762 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +136,14 @@
 				0E4D5A20296B8DDA00265762 /* Int+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0E60A222296E609400AFCF07 /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				0E60A220296E608F00AFCF07 /* StoryViewController.swift */,
+			);
+			path = Story;
 			sourceTree = "<group>";
 		};
 		2CD705D247E5FE54B0282A28 /* Frameworks */ = {
@@ -257,12 +279,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E4D5A1F296B8DAB00265762 /* TimeInterval+Extension.swift in Sources */,
+				0E4C5CC5296D55FA000878DF /* PasswordViewController.swift in Sources */,
 				0E4D5A21296B8DDA00265762 /* Int+Extension.swift in Sources */,
 				0E2C29D22967E75800305639 /* SecureMarshmallow.xcdatamodeld in Sources */,
 				0E4C5CC3296D4ECC000878DF /* UIColor+Extension.swift in Sources */,
 				0E4D5A1D2969CDBF00265762 /* BaseVC.swift in Sources */,
 				0E2C29CC2967E75800305639 /* ErrorViewController.swift in Sources */,
 				0E3FCA69296CD4EA00474C83 /* ErrorViewController+layout.swift in Sources */,
+				0E60A221296E608F00AFCF07 /* StoryViewController.swift in Sources */,
 				0E2C29C82967E75800305639 /* AppDelegate.swift in Sources */,
 				0E2C29CA2967E75800305639 /* SceneDelegate.swift in Sources */,
 			);
