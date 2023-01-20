@@ -10,8 +10,11 @@ import SnapKit
 import RxFlow
 import RxRelay
 import RxCocoa
+import RxSwift
 
 class StoryViewController: UIViewController {
+    
+    let disposeBag = DisposeBag()
     
     internal var logoImageView = UIImageView().then {
         let imageName = "MarshmallowLogo"
@@ -42,7 +45,7 @@ class StoryViewController: UIViewController {
         okButton.rx.tap
             .bind {
                 print("넵! 알겠습니다!")
-            }
+            }.disposed(by: disposeBag)
     }
     
     func layout() {
