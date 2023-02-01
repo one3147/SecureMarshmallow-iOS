@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  SecureMarshmallow
-//
-//  Created by 박준하 on 2023/01/06.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
