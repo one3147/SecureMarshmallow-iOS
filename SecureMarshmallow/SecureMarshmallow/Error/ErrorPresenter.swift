@@ -8,7 +8,10 @@
 import UIKit
 
 protocol ErrorProtocol {
-    
+    func setupViews()
+//    func animationViewEvent()
+//    func startTimer()
+//    func attributes()
 }
 
 final class ErrorPresenter: NSObject {
@@ -20,6 +23,16 @@ final class ErrorPresenter: NSObject {
     }
     
     func viewDidLoad() {
-        
+//        viewController.animationViewEvent()
+//        viewController.attributes()
+    }
+    
+    func viewDidAppear() {
+//        viewController.attributes()
+//        viewController.startTimer()
+    }
+    
+    func viewDidLayoutSubviews() {
+        viewController.setupViews()
     }
 }

@@ -6,6 +6,7 @@ import Then
 import Lottie
 
 class ErrorViewController: UIViewController {
+    private lazy var presenter = ErrorPresenter(viewController: self)
     
     var lapCounter: Int = 0
     var mainLapCounter: Int = 0
@@ -45,7 +46,7 @@ class ErrorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         attributes()
-        layout()
+        setupViews()
     }
     
     func animationViewEvent() {
@@ -96,23 +97,14 @@ class ErrorViewController: UIViewController {
         return String(format: "%02i:%02i", minute, second )
     }
     
-    
-    @objc func mainLapTimerUpdate(){
-        mainLapCounter += 1
-        updateLabel(label: errorTimer, counter: mainLapCounter, time: errorTime)
-    }
-    
-    @objc func lapTimerUpdate(){
-        lapCounter += 1
-    }
-    
-    
     func attributes() {
         animationViewEvent()
         self.view.backgroundColor = .errorColor
     }
-    
-    func layout() {
+}
+
+extension ErrorViewController: ErrorProtocol {
+    func setupViews() {
         self.view.addSubview(animationView!)
         self.view.addSubview(errorTimer)
         self.view.addSubview(waitLabel)
@@ -133,4 +125,16 @@ class ErrorViewController: UIViewController {
             $0.centerX.equalToSuperview()
         }
     }
+}
+
+extension ErrorViewController {
+    @objc func mainLapTimerUpdate(){
+        mainLapCounter += 1
+        updateLabel(label: errorTimer, counter: mainLapCounter, time: errorTime)
+    }
+    
+    @objc func lapTimerUpdate(){
+        lapCounter += 1
+    }
+    
 }
