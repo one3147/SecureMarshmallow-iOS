@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E25F9A3298A80FB008D2DE4 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E25F9A2298A80FB008D2DE4 /* ErrorPresenter.swift */; };
+		0E25F9AE298A8F0F008D2DE4 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E25F9AD298A8F0F008D2DE4 /* StoryViewController.swift */; };
 		0E2C29C82967E75800305639 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2C29C72967E75800305639 /* AppDelegate.swift */; };
 		0E2C29CA2967E75800305639 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2C29C92967E75800305639 /* SceneDelegate.swift */; };
 		0E2C29CC2967E75800305639 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2C29CB2967E75800305639 /* ErrorViewController.swift */; };
@@ -17,14 +18,13 @@
 		0E3FCA66296CD26600474C83 /* FireLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E3FCA65296CD26600474C83 /* FireLottie.json */; };
 		0E4C5CBF296D4E93000878DF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E4C5CBE296D4E93000878DF /* Colors.xcassets */; };
 		0E4C5CC3296D4ECC000878DF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4C5CC2296D4ECC000878DF /* UIColor+Extension.swift */; };
-		0E4C5CC5296D55FA000878DF /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4C5CC4296D55FA000878DF /* PasswordViewController.swift */; };
 		0E4D5A1F296B8DAB00265762 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D5A1E296B8DAB00265762 /* TimeInterval+Extension.swift */; };
 		0E4D5A21296B8DDA00265762 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D5A20296B8DDA00265762 /* Int+Extension.swift */; };
-		0E60A221296E608F00AFCF07 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E60A220296E608F00AFCF07 /* StoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0E25F9A2298A80FB008D2DE4 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
+		0E25F9AD298A8F0F008D2DE4 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		0E2C29C42967E75800305639 /* SecureMarshmallow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecureMarshmallow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E2C29C72967E75800305639 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E2C29C92967E75800305639 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,10 +36,8 @@
 		0E3FCA65296CD26600474C83 /* FireLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FireLottie.json; sourceTree = "<group>"; };
 		0E4C5CBE296D4E93000878DF /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		0E4C5CC2296D4ECC000878DF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		0E4C5CC4296D55FA000878DF /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		0E4D5A1E296B8DAB00265762 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
 		0E4D5A20296B8DDA00265762 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
-		0E60A220296E608F00AFCF07 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		39C9BCDA191053BEE21788B0 /* Pods-SecureMarshmallow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecureMarshmallow.release.xcconfig"; path = "Target Support Files/Pods-SecureMarshmallow/Pods-SecureMarshmallow.release.xcconfig"; sourceTree = "<group>"; };
 		57D3FD8905F462A788D2F5C3 /* Pods-SecureMarshmallow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecureMarshmallow.debug.xcconfig"; path = "Target Support Files/Pods-SecureMarshmallow/Pods-SecureMarshmallow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,6 +53,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E25F9A5298A8D1D008D2DE4 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				0E25F9A8298A8E5A008D2DE4 /* Storyboard */,
+				0E25F9A6298A8D62008D2DE4 /* Supporting Files */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		0E25F9A6298A8D62008D2DE4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0E2C29D82967E75900305639 /* Info.plist */,
+				0E3FCA64296CD25B00474C83 /* Lottie */,
+				0E25F9A7298A8D7E008D2DE4 /* Assets */,
+				0E25F9A9298A8E6A008D2DE4 /* CoreData */,
+				0E2C29C72967E75800305639 /* AppDelegate.swift */,
+				0E2C29C92967E75800305639 /* SceneDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0E25F9A7298A8D7E008D2DE4 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				0E4C5CBE296D4E93000878DF /* Colors.xcassets */,
+				0E2C29D32967E75900305639 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		0E25F9A8298A8E5A008D2DE4 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				0E2C29D52967E75900305639 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		0E25F9A9298A8E6A008D2DE4 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0E2C29D02967E75800305639 /* SecureMarshmallow.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		0E25F9AA298A8E7F008D2DE4 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				0E25F9AB298A8EB2008D2DE4 /* ViewControllers */,
+				0E4D5A15296989EE00265762 /* Extensions */,
+				0E25F9AC298A8EDE008D2DE4 /* test */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		0E25F9AB298A8EB2008D2DE4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0E3FCA67296CD4D600474C83 /* Error */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0E25F9AC298A8EDE008D2DE4 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				0E25F9AD298A8F0F008D2DE4 /* StoryViewController.swift */,
+			);
+			name = test;
+			path = Story;
+			sourceTree = "<group>";
+		};
 		0E2C29BB2967E75800305639 = {
 			isa = PBXGroup;
 			children = (
@@ -76,18 +148,8 @@
 		0E2C29C62967E75800305639 /* SecureMarshmallow */ = {
 			isa = PBXGroup;
 			children = (
-				0E2C29C72967E75800305639 /* AppDelegate.swift */,
-				0E2C29C92967E75800305639 /* SceneDelegate.swift */,
-				0E4C5CBE296D4E93000878DF /* Colors.xcassets */,
-				0E60A222296E609400AFCF07 /* Story */,
-				0E4C5CC6296D55FF000878DF /* Password */,
-				0E3FCA67296CD4D600474C83 /* Error */,
-				0E3FCA64296CD25B00474C83 /* Lottie */,
-				0E4D5A15296989EE00265762 /* Extensions */,
-				0E2C29D32967E75900305639 /* Assets.xcassets */,
-				0E2C29D52967E75900305639 /* LaunchScreen.storyboard */,
-				0E2C29D82967E75900305639 /* Info.plist */,
-				0E2C29D02967E75800305639 /* SecureMarshmallow.xcdatamodeld */,
+				0E25F9A5298A8D1D008D2DE4 /* Resource */,
+				0E25F9AA298A8E7F008D2DE4 /* Source */,
 			);
 			path = SecureMarshmallow;
 			sourceTree = "<group>";
@@ -109,14 +171,6 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
-		0E4C5CC6296D55FF000878DF /* Password */ = {
-			isa = PBXGroup;
-			children = (
-				0E4C5CC4296D55FA000878DF /* PasswordViewController.swift */,
-			);
-			path = Password;
-			sourceTree = "<group>";
-		};
 		0E4D5A15296989EE00265762 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,14 +179,6 @@
 				0E4D5A20296B8DDA00265762 /* Int+Extension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		0E60A222296E609400AFCF07 /* Story */ = {
-			isa = PBXGroup;
-			children = (
-				0E60A220296E608F00AFCF07 /* StoryViewController.swift */,
-			);
-			path = Story;
 			sourceTree = "<group>";
 		};
 		2CD705D247E5FE54B0282A28 /* Frameworks */ = {
@@ -267,14 +313,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E25F9AE298A8F0F008D2DE4 /* StoryViewController.swift in Sources */,
 				0E4D5A1F296B8DAB00265762 /* TimeInterval+Extension.swift in Sources */,
-				0E4C5CC5296D55FA000878DF /* PasswordViewController.swift in Sources */,
 				0E4D5A21296B8DDA00265762 /* Int+Extension.swift in Sources */,
 				0E2C29D22967E75800305639 /* SecureMarshmallow.xcdatamodeld in Sources */,
 				0E4C5CC3296D4ECC000878DF /* UIColor+Extension.swift in Sources */,
 				0E25F9A3298A80FB008D2DE4 /* ErrorPresenter.swift in Sources */,
 				0E2C29CC2967E75800305639 /* ErrorViewController.swift in Sources */,
-				0E60A221296E608F00AFCF07 /* StoryViewController.swift in Sources */,
 				0E2C29C82967E75800305639 /* AppDelegate.swift in Sources */,
 				0E2C29CA2967E75800305639 /* SceneDelegate.swift in Sources */,
 			);
@@ -418,7 +463,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 92YDTRVDUA;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SecureMarshmallow/Info.plist;
+				INFOPLIST_FILE = "/Users/junha/Desktop/SecureMarshmallow/SecureMarshmallow-iOS/SecureMarshmallow/SecureMarshmallow/Resource/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -447,7 +492,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 92YDTRVDUA;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SecureMarshmallow/Info.plist;
+				INFOPLIST_FILE = "/Users/junha/Desktop/SecureMarshmallow/SecureMarshmallow-iOS/SecureMarshmallow/SecureMarshmallow/Resource/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
