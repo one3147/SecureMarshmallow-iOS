@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E25F9A3298A80FB008D2DE4 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E25F9A2298A80FB008D2DE4 /* ErrorPresenter.swift */; };
 		0E2C29C82967E75800305639 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2C29C72967E75800305639 /* AppDelegate.swift */; };
 		0E2C29CA2967E75800305639 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2C29C92967E75800305639 /* SceneDelegate.swift */; };
 		0E2C29CC2967E75800305639 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2C29CB2967E75800305639 /* ErrorViewController.swift */; };
@@ -14,7 +15,6 @@
 		0E2C29D42967E75900305639 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E2C29D32967E75900305639 /* Assets.xcassets */; };
 		0E2C29D72967E75900305639 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E2C29D52967E75900305639 /* LaunchScreen.storyboard */; };
 		0E3FCA66296CD26600474C83 /* FireLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E3FCA65296CD26600474C83 /* FireLottie.json */; };
-		0E3FCA69296CD4EA00474C83 /* ErrorViewController+layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCA68296CD4EA00474C83 /* ErrorViewController+layout.swift */; };
 		0E4C5CBF296D4E93000878DF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E4C5CBE296D4E93000878DF /* Colors.xcassets */; };
 		0E4C5CC3296D4ECC000878DF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4C5CC2296D4ECC000878DF /* UIColor+Extension.swift */; };
 		0E4C5CC5296D55FA000878DF /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4C5CC4296D55FA000878DF /* PasswordViewController.swift */; };
@@ -25,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E25F9A2298A80FB008D2DE4 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		0E2C29C42967E75800305639 /* SecureMarshmallow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecureMarshmallow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E2C29C72967E75800305639 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E2C29C92967E75800305639 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,7 +35,6 @@
 		0E2C29D62967E75900305639 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E2C29D82967E75900305639 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E3FCA65296CD26600474C83 /* FireLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FireLottie.json; sourceTree = "<group>"; };
-		0E3FCA68296CD4EA00474C83 /* ErrorViewController+layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ErrorViewController+layout.swift"; sourceTree = "<group>"; };
 		0E4C5CBE296D4E93000878DF /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		0E4C5CC2296D4ECC000878DF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		0E4C5CC4296D55FA000878DF /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				0E2C29CB2967E75800305639 /* ErrorViewController.swift */,
-				0E3FCA68296CD4EA00474C83 /* ErrorViewController+layout.swift */,
+				0E25F9A2298A80FB008D2DE4 /* ErrorPresenter.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -284,8 +284,8 @@
 				0E2C29D22967E75800305639 /* SecureMarshmallow.xcdatamodeld in Sources */,
 				0E4C5CC3296D4ECC000878DF /* UIColor+Extension.swift in Sources */,
 				0E4D5A1D2969CDBF00265762 /* BaseVC.swift in Sources */,
+				0E25F9A3298A80FB008D2DE4 /* ErrorPresenter.swift in Sources */,
 				0E2C29CC2967E75800305639 /* ErrorViewController.swift in Sources */,
-				0E3FCA69296CD4EA00474C83 /* ErrorViewController+layout.swift in Sources */,
 				0E60A221296E608F00AFCF07 /* StoryViewController.swift in Sources */,
 				0E2C29C82967E75800305639 /* AppDelegate.swift in Sources */,
 				0E2C29CA2967E75800305639 /* SceneDelegate.swift in Sources */,
