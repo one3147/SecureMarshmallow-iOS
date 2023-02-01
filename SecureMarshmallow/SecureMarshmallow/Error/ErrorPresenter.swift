@@ -9,9 +9,9 @@ import UIKit
 
 protocol ErrorProtocol {
     func setupViews()
-//    func animationViewEvent()
+    func animationViewEvent()
     func startTimer()
-//    func attributes()
+    func customaBackgroundColor()
 }
 
 final class ErrorPresenter: NSObject {
@@ -23,12 +23,11 @@ final class ErrorPresenter: NSObject {
     }
     
     func viewDidLoad() {
-//        viewController.animationViewEvent()
-//        viewController.attributes()
+        viewController.animationViewEvent()
     }
     
     func viewDidAppear() {
-//        viewController.attributes()
+        viewController.customaBackgroundColor()
         viewController.startTimer()
     }
     

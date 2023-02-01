@@ -8,6 +8,9 @@ import Lottie
 class ErrorViewController: UIViewController {
     private lazy var presenter = ErrorPresenter(viewController: self)
     
+    internal let disposeBag = DisposeBag()
+    internal var animationView: LottieAnimationView?
+    
     var lapCounter: Int = 0
     var mainLapCounter: Int = 0
     
@@ -16,9 +19,6 @@ class ErrorViewController: UIViewController {
     
     var errorTime: Int = 180
     var userErrorCount = 0
-    
-    internal let disposeBag = DisposeBag()
-    internal var animationView: LottieAnimationView?
     
     internal let errorTimer = UILabel().then {
         $0.textAlignment = .center
@@ -34,6 +34,12 @@ class ErrorViewController: UIViewController {
         $0.numberOfLines = 0
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        presenter.viewDidLayoutSubviews()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -42,57 +48,14 @@ class ErrorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        attributes()
-        setupViews()
-    }
-    
-    func animationViewEvent() {
-        animationView = .init(name: "FireLottie")
-        
-        animationView!.loopMode = .loop
-        
-        animationView!.animationSpeed = 0.1
-        
-        animationView!.center = view.center
-        
-        animationView!.contentMode = .scaleAspectFill
-    }
-    
-    func errorTimerText(_ errorCountText: Int) -> Int {
-        userErrorCount = errorCountText / 60
-        return userErrorCount
-    }
-    
-    func updateLabel( label : UILabel, counter : Int, time: Int){
-        let threeMinutes: Int = time
-        errorTimer.text = secondsToHourMinuteSecond(seconds: Int(threeMinutes - counter))
-    }
-    
-    func secondsToHourMinuteSecond( seconds : Int )->String{
-        let minute = seconds / 60 % 60
-        let second = seconds % 60
-        
-        if minute == 0 && second == 0 {
-            // 나중에 뷰추가 후 수정
-            print("비밀번호 호출 이벤트")
-            lapTimer?.invalidate()
-            mainLapTimer?.invalidate()
-        }
-        
-        return String(format: "%02i:%02i", minute, second )
-    }
-    
-    func attributes() {
-        animationViewEvent()
-        self.view.backgroundColor = .errorColor
+        presenter.viewDidLoad()
     }
 }
 
 extension ErrorViewController: ErrorProtocol {
     func setupViews() {
         self.view.addSubview(animationView!)
-        self.view.addSubview(errorTimer)
-        self.view.addSubview(waitLabel)
+        [errorTimer,waitLabel].forEach { self.view.addSubview($0) }
         
         self.animationView!.snp.makeConstraints {
             $0.top.equalToSuperview().offset(180.0)
@@ -125,9 +88,51 @@ extension ErrorViewController: ErrorProtocol {
         
         animationView!.play()
     }
+    
+    func animationViewEvent() {
+        animationView = .init(name: "FireLottie")
+        
+        animationView!.loopMode = .loop
+        
+        animationView!.animationSpeed = 0.1
+        
+        animationView!.center = view.center
+        
+        animationView!.contentMode = .scaleAspectFill
+    }
+    
+    func customaBackgroundColor() {
+        self.view.backgroundColor = .errorColor
+    }
 }
 
+//연산관련 함수들
 extension ErrorViewController {
+    
+    func errorTimerText(_ errorCountText: Int) -> Int {
+        userErrorCount = errorCountText / 60
+        return userErrorCount
+    }
+    
+    func updateLabel( label : UILabel, counter : Int, time: Int){
+        let threeMinutes: Int = time
+        errorTimer.text = secondsToHourMinuteSecond(seconds: Int(threeMinutes - counter))
+    }
+    
+    func secondsToHourMinuteSecond( seconds : Int )->String{
+        let minute = seconds / 60 % 60
+        let second = seconds % 60
+        
+        if minute == 0 && second == 0 {
+            // 나중에 뷰추가 후 수정
+            print("비밀번호 호출 이벤트")
+            lapTimer?.invalidate()
+            mainLapTimer?.invalidate()
+        }
+        
+        return String(format: "%02i:%02i", minute, second )
+    }
+    
     @objc func mainLapTimerUpdate(){
         mainLapCounter += 1
         updateLabel(label: errorTimer, counter: mainLapCounter, time: errorTime)
