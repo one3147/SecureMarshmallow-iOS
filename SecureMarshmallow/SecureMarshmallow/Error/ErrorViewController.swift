@@ -37,10 +37,7 @@ class ErrorViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.errorTimer.text = "00:00"
-        startTimer()
-        
-        animationView!.play()
+        presenter.viewDidAppear()
     }
     
     override func viewDidLoad() {
@@ -65,18 +62,6 @@ class ErrorViewController: UIViewController {
         userErrorCount = errorCountText / 60
         return userErrorCount
     }
-    
-    func startTimer(){
-        if mainLapTimer == nil{
-            mainLapTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(mainLapTimerUpdate), userInfo: nil, repeats: true)
-            RunLoop.current.add(mainLapTimer!, forMode: .common)
-        }
-        if lapTimer == nil{
-            lapTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(lapTimerUpdate), userInfo: nil, repeats: true)
-            RunLoop.current.add(lapTimer!, forMode: .common)
-        }
-    }
-    
     
     func updateLabel( label : UILabel, counter : Int, time: Int){
         let threeMinutes: Int = time
@@ -124,6 +109,21 @@ extension ErrorViewController: ErrorProtocol {
             $0.top.equalTo(errorTimer.snp.bottom).offset(160.0)
             $0.centerX.equalToSuperview()
         }
+    }
+    
+    func startTimer(){
+        self.errorTimer.text = "00:00"
+        
+        if mainLapTimer == nil{
+            mainLapTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(mainLapTimerUpdate), userInfo: nil, repeats: true)
+            RunLoop.current.add(mainLapTimer!, forMode: .common)
+        }
+        if lapTimer == nil{
+            lapTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(lapTimerUpdate), userInfo: nil, repeats: true)
+            RunLoop.current.add(lapTimer!, forMode: .common)
+        }
+        
+        animationView!.play()
     }
 }
 
