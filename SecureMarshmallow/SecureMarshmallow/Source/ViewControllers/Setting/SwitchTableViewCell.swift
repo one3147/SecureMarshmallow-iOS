@@ -6,43 +6,32 @@
 //
 
 import UIKit
+import Then
 
 class SwitchTableViewCell: UITableViewCell {
     static let identifier = "SwitchTableViewCell"
     
-    private let iconContainer: UIView = {
-       let view = UIView()
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 10
-        view.layer.masksToBounds = true
-        
-        return view
-    }()
+    private let iconContainer = UIView().then {
+        $0.clipsToBounds = true
+        $0.layer.cornerRadius = 10
+        $0.layer.masksToBounds = true
+    }
     
-    private let iconImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.tintColor = .white
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
+    private let iconImageView = UIImageView().then {
+        $0.tintColor = .white
+        $0.contentMode = .scaleAspectFit
+    }
     
-    private let label: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 1
-        return label
-    }()
+    private let label = UILabel().then {
+        $0.numberOfLines = 1
+    }
     
-    private let mySwitch: UISwitch = {
-        let mySwitch = UISwitch()
-        mySwitch.onTintColor = .systemBlue
-        return mySwitch
-    }()
+    private let mySwitch = UISwitch().then { $0.onTintColor = .systemBlue }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(label)
-        contentView.addSubview(iconContainer)
-        contentView.addSubview(mySwitch)
+        
+        [label, iconContainer, mySwitch].forEach { contentView.addSubview($0) }
         iconContainer.addSubview(iconImageView)
         
         contentView.clipsToBounds = true
