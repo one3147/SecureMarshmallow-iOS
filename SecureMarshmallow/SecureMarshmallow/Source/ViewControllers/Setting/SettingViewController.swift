@@ -57,40 +57,77 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func configure() {
-        models.append(Section(title: "General", options: [
-            .switchCell(model: SettingsSwitchOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemRed, handler: {
+        //스위치 관련
+//        models.append(Section(title: "", options: [
+//            .switchCell(model: SettingsSwitchOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemRed, handler: {
+//
+//            }, isOn: true))
+//        ]))
+        models.append(Section(title: "", options: [
+            .staticCell(model: SettingOption(title: "gmail 정보", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
                 
-            }, isOn: true))
+            }),
+            .staticCell(model: SettingOption(title: "아이디 정보", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
+                
+            })
         ]))
         
-        models.append(Section(title: "Information", options: [
-            .staticCell(model: SettingOption(title: "Wifi", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink) {
+        
+        models.append(Section(title: "", options: [
+            .staticCell(model: SettingOption(title: "앱 비밀번호", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
                 
             }),
-            .staticCell(model: SettingOption(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link) {
+            .staticCell(model: SettingOption(title: "침입 시도", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
                 
             }),
-            .staticCell(model: SettingOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemGreen) {
+            .staticCell(model: SettingOption(title: "앱 열기 추적", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
                 
-            }),
-            .staticCell(model: SettingOption(title: "iCloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .systemOrange) {
-                
-            }),
+            })
         ]))
         
-        models.append(Section(title: "Apps", options: [
-            .staticCell(model: SettingOption(title: "Wifi", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink) {
+        models.append(Section(title: "", options: [
+            .staticCell(model: SettingOption(title: "앱 아이콘 변경", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
                 
             }),
-            .staticCell(model: SettingOption(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link) {
+            .staticCell(model: SettingOption(title: "앱 테마 변경", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .gray) {
+                
+            })
+        ]))
+        
+        models.append(Section(title: "", options: [
+            .staticCell(model: SettingOption(title: "지원", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
                 
             }),
-            .staticCell(model: SettingOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemGreen) {
+            .staticCell(model: SettingOption(title: "버그 보고하기", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
+                
+            })
+        ]))
+        
+        models.append(Section(title: "", options: [
+            .staticCell(model: SettingOption(title: "피드백", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
+                
+            })
+        ]))
+        
+        models.append(Section(title: "", options: [
+            .staticCell(model: SettingOption(title: "앱 공유", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
                 
             }),
-            .staticCell(model: SettingOption(title: "iCloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .systemOrange) {
+            .staticCell(model: SettingOption(title: "개인정보 처리 방침", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
                 
             }),
+            .staticCell(model: SettingOption(title: "이용 약관", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
+                
+            })
+        ]))
+        
+        models.append(Section(title: "", options: [
+            .staticCell(model: SettingOption(title: "사용 방법", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
+                
+            }),
+            .staticCell(model: SettingOption(title: "개발자 정보", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
+                
+            })
         ]))
     }
     
@@ -118,7 +155,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.configure(with: model)
             return cell
         case .switchCell(let model):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier:            SwitchTableViewCell.identifier, for: indexPath) as?             SwitchTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier, for: indexPath) as? SwitchTableViewCell else {
                 return UITableViewCell()
             }
             cell.configure(with: model)
