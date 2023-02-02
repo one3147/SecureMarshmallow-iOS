@@ -10,7 +10,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.windowScene = windowScene
 
-        let errorViewController = ErrorViewController()
+//        let errorViewController = ErrorViewController()
         let settingViewController = SettingViewController()
         
         let rootNavigationController = UINavigationController(rootViewController: settingViewController)

@@ -32,7 +32,10 @@ struct SettingOption {
     let handler: (() -> Void)
 }
 
-class SettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+
+final class SettingViewController: UIViewController {
+    private lazy var presenter = SettingPresenter(viewController: self)
     
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -46,9 +49,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Setting"
-        navigationController?.navigationBar.prefersLargeTitles = true
-
+        
         configure()
         view.addSubview(tableView)
         tableView.delegate = self
@@ -130,6 +131,13 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             })
         ]))
     }
+}
+
+extension SettingViewController: SettingProtocol {
+    
+}
+
+extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let section = models[section]
@@ -149,13 +157,17 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         switch model.self {
         case .staticCell(let model):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier, for: indexPath) as? SettingTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: SettingTableViewCell.identifier,
+                for: indexPath) as? SettingTableViewCell else {
                 return UITableViewCell()
             }
             cell.configure(with: model)
             return cell
         case .switchCell(let model):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier, for: indexPath) as? SwitchTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: SwitchTableViewCell.identifier,
+                for: indexPath) as? SwitchTableViewCell else {
                 return UITableViewCell()
             }
             cell.configure(with: model)
