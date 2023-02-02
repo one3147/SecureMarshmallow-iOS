@@ -7,6 +7,11 @@
 
 import UIKit
 
+struct Section {
+    let title: String
+    let options: [SettingOption]
+}
+
 struct SettingOption {
     let title: String
     let icon: UIImage?
@@ -18,12 +23,12 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.identifier)
         
         return table
     }()
     
-    var models = [SettingOption]()
+    var models = [Section]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,22 +41,73 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func configure() {
-        self.models = Array(0...100).compactMap({
-            SettingOption(title: "Item \($0)", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink) {
+        models.append(Section(title: "General", options: [
+            SettingOption(title: "Wifi", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink) {
                 
-            }
-        })
+            },
+            SettingOption(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link) {
+                
+            },
+            SettingOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemGreen) {
+                
+            },
+            SettingOption(title: "iCloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .systemOrange) {
+                
+            },
+        ]))
+        
+        models.append(Section(title: "Information", options: [
+            SettingOption(title: "Wifi", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink) {
+                
+            },
+            SettingOption(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link) {
+                
+            },
+            SettingOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemGreen) {
+                
+            },
+            SettingOption(title: "iCloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .systemOrange) {
+                
+            },
+        ]))
+        
+        models.append(Section(title: "Apps", options: [
+            SettingOption(title: "Wifi", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink) {
+                
+            },
+            SettingOption(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link) {
+                
+            },
+            SettingOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemGreen) {
+                
+            },
+            SettingOption(title: "iCloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .systemOrange) {
+                
+            },
+        ]))
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return models.count
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return models[section].options.count
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = models[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let model = models[indexPath.section].options[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier, for: indexPath) as? SettingTableViewCell else {
+            return UITableViewCell()
+        }
         
-        cell.textLabel?.text = model.title
+        cell.configure(with: model)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let model = models[indexPath.row].options[indexPath.row]
+        model.handler()
     }
 }
