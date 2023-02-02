@@ -6,37 +6,30 @@
 //
 
 import UIKit
+import Then
 
 class SettingTableViewCell: UITableViewCell {
     static let identifier = "SettingTableViewCell"
     
-    private let iconContainer: UIView = {
-       let view = UIView()
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 10
-        view.layer.masksToBounds = true
-        
-        return view
-    }()
+    private let iconContainer = UIView().then {
+        $0.clipsToBounds = true
+        $0.layer.cornerRadius = 10
+        $0.layer.masksToBounds = true
+    }
     
-    private let iconImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.tintColor = .white
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
+    private let iconImageView = UIImageView().then {
+        $0.tintColor = .white
+        $0.contentMode = .scaleAspectFit
+    }
     
-    private let label: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 1
-        return label
-    }()
+    private let label = UILabel().then {
+        $0.numberOfLines = 1
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(label)
-        contentView.addSubview(iconImageView)
-        contentView.addSubview(iconContainer)
+        
+        [label, iconImageView, iconContainer].forEach { contentView.addSubview($0) }
         contentView.clipsToBounds = true
         accessoryType = .disclosureIndicator
     }
