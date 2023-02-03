@@ -66,10 +66,12 @@ final class SettingViewController: UIViewController {
 //        ]))
         models.append(Section(title: "", options: [
             .staticCell(model: SettingOption(title: "gmail 정보", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
-                
+                let idVC = IdInformationViewController()
+                self.navigationController?.pushViewController(idVC, animated: true)
+                print("클릭함")
             }),
             .staticCell(model: SettingOption(title: "아이디 정보", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
-                
+
             })
         ]))
         
