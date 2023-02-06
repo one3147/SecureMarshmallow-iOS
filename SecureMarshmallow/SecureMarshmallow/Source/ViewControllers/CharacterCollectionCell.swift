@@ -16,12 +16,26 @@ class CharacterCollectionCell: UICollectionViewCell {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = .black
         $0.layer.cornerRadius = 55
+        $0.layer.borderWidth = 2.0
+        $0.layer.borderColor = UIColor.gray.cgColor
     }
     
     var titleLabel = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.font = .systemFont(ofSize: 80.0, weight: .black)
         $0.text = ""
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            if self.isSelected {
+                print("yes")
+                imageView.layer.borderColor = UIColor.yellow.cgColor
+            } else {
+                print("no")
+                imageView.layer.borderColor = UIColor.gray.cgColor
+            }
+        }
     }
     
     
