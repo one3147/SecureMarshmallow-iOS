@@ -13,6 +13,8 @@ import RxSwift
 
 class CharacterSelectionViewController: ViewController {
     
+    var userEmoji: String = ""
+    
     var array = ["0","1","2","3","4","5","6","7","8"]
     let sectionInsets = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
     
@@ -23,7 +25,7 @@ class CharacterSelectionViewController: ViewController {
     
     private lazy var emojiCharacter = UILabel().then {
         $0.font = .systemFont(ofSize: 100.0, weight: .black)
-        $0.text = "🐰"
+        $0.text = ""
     }
     
     private lazy var askingLable = UILabel().then {
@@ -67,10 +69,11 @@ class CharacterSelectionViewController: ViewController {
         
         characterButton.isSelected = true
         backgroundButton.isSelected = false
+        emojiCharacter.text = "🐰"
     }
     
     override func viewDidLoad() {
-        
+
         characterButton.alternateButton = [backgroundButton]
         backgroundButton.alternateButton = [characterButton]
         
@@ -91,6 +94,7 @@ class CharacterSelectionViewController: ViewController {
                 cell.layout()
                 cell.imageView.backgroundColor = .gray
                 cell.layer.cornerRadius = 250
+//                cell.animateBorderGradation()
                 
                 if index == 0 {
                     cell.titleLabel.text = "🐻‍❄️"
@@ -194,5 +198,25 @@ extension CharacterSelectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("\(indexPath.row)가 눌렸어")
+        if indexPath.row == 0 {
+            userEmoji = "🐻‍❄️"
+        } else if indexPath.row == 1 {
+            userEmoji = "🦁"
+        } else if indexPath.row == 2 {
+            userEmoji = "🐵"
+        } else if indexPath.row == 3 {
+            userEmoji = "🐭"
+        } else if indexPath.row == 4 {
+            userEmoji = "🐰"
+        } else if indexPath.row == 5 {
+            userEmoji = "🐸"
+        } else if indexPath.row == 6 {
+            userEmoji = "🐱"
+        } else if indexPath.row == 7 {
+            userEmoji = "🐶"
+        } else {
+            userEmoji = "🐼"
+        }
+        emojiCharacter.text = userEmoji
     }
 }
