@@ -20,7 +20,8 @@ class CharacterCollectionCell: UICollectionViewCell {
     
     var titleLabel = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "label label"
+        $0.font = .systemFont(ofSize: 80.0, weight: .black)
+        $0.text = ""
     }
     
     

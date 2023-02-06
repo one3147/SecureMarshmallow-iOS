@@ -90,8 +90,27 @@ class CharacterSelectionViewController: ViewController {
                 print("데이터불러오기 성공")
                 cell.layout()
                 cell.imageView.backgroundColor = .gray
-                cell.titleLabel.text = "asdf"
                 cell.layer.cornerRadius = 250
+                
+                if index == 0 {
+                    cell.titleLabel.text = "🐻‍❄️"
+                } else if index == 1 {
+                    cell.titleLabel.text = "🦁"
+                } else if index == 2 {
+                    cell.titleLabel.text = "🐵"
+                } else if index == 3 {
+                    cell.titleLabel.text = "🐭"
+                } else if index == 4 {
+                    cell.titleLabel.text = "🐰"
+                } else if index == 5 {
+                    cell.titleLabel.text = "🐸"
+                } else if index == 6 {
+                    cell.titleLabel.text = "🐱"
+                } else if index == 7 {
+                    cell.titleLabel.text = "🐶"
+                } else{
+                    cell.titleLabel.text = "🐼"
+                }
             }
     }
     
