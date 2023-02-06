@@ -27,6 +27,10 @@
 		0E813512298D3A4000BFC20E /* BaseNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E813511298D3A4000BFC20E /* BaseNC.swift */; };
 		0E813514298D3B7400BFC20E /* IdInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E813513298D3B7400BFC20E /* IdInformationViewController.swift */; };
 		0EA0A561299106C000652588 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0A560299106C000652588 /* ViewController.swift */; };
+		0EA0A5632991137D00652588 /* CharacterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0A5622991137D00652588 /* CharacterSelectionViewController.swift */; };
+		0EA0A5692991233E00652588 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0A5682991233E00652588 /* RadioButton.swift */; };
+		0EA0A56B2991234100652588 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0A56A2991234100652588 /* RadioButton.swift */; };
+		0EA0A56D2991234B00652588 /* CharacterCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0A56C2991234B00652588 /* CharacterCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,10 @@
 		0E813511298D3A4000BFC20E /* BaseNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNC.swift; sourceTree = "<group>"; };
 		0E813513298D3B7400BFC20E /* IdInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdInformationViewController.swift; sourceTree = "<group>"; };
 		0EA0A560299106C000652588 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0EA0A5622991137D00652588 /* CharacterSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionViewController.swift; sourceTree = "<group>"; };
+		0EA0A5682991233E00652588 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		0EA0A56A2991234100652588 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		0EA0A56C2991234B00652588 /* CharacterCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionCell.swift; sourceTree = "<group>"; };
 		39C9BCDA191053BEE21788B0 /* Pods-SecureMarshmallow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecureMarshmallow.release.xcconfig"; path = "Target Support Files/Pods-SecureMarshmallow/Pods-SecureMarshmallow.release.xcconfig"; sourceTree = "<group>"; };
 		57D3FD8905F462A788D2F5C3 /* Pods-SecureMarshmallow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecureMarshmallow.debug.xcconfig"; path = "Target Support Files/Pods-SecureMarshmallow/Pods-SecureMarshmallow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +138,8 @@
 			children = (
 				0E25F9AF298B879A008D2DE4 /* Setting */,
 				0E3FCA67296CD4D600474C83 /* Error */,
+				0EA0A5622991137D00652588 /* CharacterSelectionViewController.swift */,
+				0EA0A56C2991234B00652588 /* CharacterCollectionCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -201,7 +211,9 @@
 			isa = PBXGroup;
 			children = (
 				0E4C5CC2296D4ECC000878DF /* UIColor+Extension.swift */,
+				0EA0A56A2991234100652588 /* RadioButton.swift */,
 				0E4D5A1E296B8DAB00265762 /* TimeInterval+Extension.swift */,
+				0EA0A5682991233E00652588 /* RadioButton.swift */,
 				0E4D5A20296B8DDA00265762 /* Int+Extension.swift */,
 			);
 			path = Extensions;
@@ -371,6 +383,9 @@
 				0E25F9AE298A8F0F008D2DE4 /* StoryViewController.swift in Sources */,
 				0E4D5A1F296B8DAB00265762 /* TimeInterval+Extension.swift in Sources */,
 				0E4D5A21296B8DDA00265762 /* Int+Extension.swift in Sources */,
+				0EA0A5692991233E00652588 /* RadioButton.swift in Sources */,
+				0EA0A5632991137D00652588 /* CharacterSelectionViewController.swift in Sources */,
+				0EA0A56B2991234100652588 /* RadioButton.swift in Sources */,
 				0E813512298D3A4000BFC20E /* BaseNC.swift in Sources */,
 				0E2C29D22967E75800305639 /* SecureMarshmallow.xcdatamodeld in Sources */,
 				0E4C5CC3296D4ECC000878DF /* UIColor+Extension.swift in Sources */,
@@ -378,6 +393,7 @@
 				0E25F9B7298BAF06008D2DE4 /* SettingPresenter.swift in Sources */,
 				0E25F9A3298A80FB008D2DE4 /* ErrorPresenter.swift in Sources */,
 				0E2C29CC2967E75800305639 /* ErrorViewController.swift in Sources */,
+				0EA0A56D2991234B00652588 /* CharacterCollectionCell.swift in Sources */,
 				0E2C29C82967E75800305639 /* AppDelegate.swift in Sources */,
 				0E813514298D3B7400BFC20E /* IdInformationViewController.swift in Sources */,
 				0EA0A561299106C000652588 /* ViewController.swift in Sources */,
