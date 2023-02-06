@@ -5,6 +5,8 @@
 //  Created by 박준하 on 2023/02/02.
 //
 
+//현재 극심한 에러로 나중에 다시 해야겠다 ㄷㄷ
+
 import UIKit
 
 struct Section {
@@ -64,31 +66,41 @@ final class SettingViewController: UIViewController {
 //
 //            }, isOn: true))
 //        ]))
-        models.append(Section(title: "", options: [
+        
+//        models.append(Section(title: "개인정보", options: [
+//            .staticCell(model: SettingOption(title: "gmail", icon: UIImage(systemName: ""), iconBackgroundColor: .green, handler: {
+//                print("asdfasdf")
+//            })),
+//            .staticCell(model: SettingOption(title: "아이디 정보", icon: UIImage(systemName: ""), iconBackgroundColor: .green, handler: {
+//                print("sdfgsdfgsdfg")
+//            }))
+//        ]))
+        
+        models.append(Section(title: "개인정보", options: [
             .staticCell(model: SettingOption(title: "gmail 정보", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
-                let idVC = IdInformationViewController()
-                self.navigationController?.pushViewController(idVC, animated: true)
-                print("클릭함")
+                    let idVC = IdInformationViewController()
+                    self.navigationController?.pushViewController(idVC, animated: true)
+                    print("클릭함")
             }),
             .staticCell(model: SettingOption(title: "아이디 정보", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
 
+                print("하하")
             })
         ]))
+//
         
-        
-        models.append(Section(title: "", options: [
+        models.append(Section(title: "보안", options: [
             .staticCell(model: SettingOption(title: "앱 비밀번호", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
-                
             }),
             .staticCell(model: SettingOption(title: "침입 시도", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
                 
             }),
             .staticCell(model: SettingOption(title: "앱 열기 추적", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
-                
+                print("asdfasdf r")
             })
         ]))
         
-        models.append(Section(title: "", options: [
+        models.append(Section(title: "앱", options: [
             .staticCell(model: SettingOption(title: "앱 아이콘 변경", icon: UIImage(systemName: ""), iconBackgroundColor: .gray) {
                 
             }),
@@ -147,16 +159,18 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        print("numberOfSections \(models.count)")
         return models.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(" numberOfRowsInSection \(models[section].options.count)")
         return models[section].options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.section].options[indexPath.row]
-        
+        print("model: \(model)")
         switch model.self {
         case .staticCell(let model):
             guard let cell = tableView.dequeueReusableCell(
