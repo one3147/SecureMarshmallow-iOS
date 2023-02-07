@@ -22,12 +22,12 @@ class CompleteViewController: UIViewController {
     
     private lazy var welcomeTitle = UILabel().then {
         $0.font = .systemFont(ofSize: 24.0, weight: .semibold)
-        $0.text = "지은님 환영합니다"
+        $0.text = "%s님 환영합니다"
     }
     
     private lazy var profileUpdateMessage = UILabel().then {
         $0.font = .systemFont(ofSize: 14.0, weight: .regular)
-        $0.text = "2023.01.30 프로필 업데이트"
+        $0.text = "2023.02.07 프로필 업데이트"
         $0.textColor = .separator
 
     }
