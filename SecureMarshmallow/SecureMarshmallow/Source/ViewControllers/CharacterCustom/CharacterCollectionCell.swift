@@ -60,7 +60,7 @@ class CharacterCollectionCell: UICollectionViewCell {
                 //                animateBorderGradation()
             } else {
                 print("no")
-                imageView.layer.borderColor = UIColor.gray.cgColor
+                imageView.layer.borderColor = UIColor.clear.cgColor
             }
         }
     }
