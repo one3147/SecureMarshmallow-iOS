@@ -64,10 +64,14 @@ class CompleteViewController: UIViewController {
             completeButton
         ].forEach { view.addSubview($0) }
         
+        let width = view.frame.width / 430
+        let height = view.frame.height / 932
+        
         backgroundView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(200.0)
+            $0.top.equalToSuperview().offset(200.0 * height)
             $0.centerX.equalToSuperview()
-            $0.height.width.equalTo(200.0)
+            $0.height.equalTo(200.0 * height)
+            $0.width.equalTo(200.0 * width)
         }
         
         emojiCharacter.snp.makeConstraints {
@@ -77,19 +81,19 @@ class CompleteViewController: UIViewController {
         
         welcomeTitle.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(backgroundView.snp.bottom).offset(75.0)
+            $0.top.equalTo(backgroundView.snp.bottom).offset(75.0 * height)
         }
         
         profileUpdateMessage.snp.makeConstraints {
             $0.centerX.equalTo(welcomeTitle.snp.centerX)
-            $0.top.equalTo(welcomeTitle.snp.bottom).offset(10.0)
+            $0.top.equalTo(welcomeTitle.snp.bottom).offset(10.0 * height)
         }
         
         completeButton.snp.makeConstraints {
-            $0.top.equalTo(profileUpdateMessage.snp.bottom).offset(230.0)
+            $0.top.equalTo(profileUpdateMessage.snp.bottom).offset(230.0 * height)
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(260.0)
-            $0.height.equalTo(55.0)
+            $0.width.equalTo(260.0 * width)
+            $0.height.equalTo(55.0 * height)
         }
     }
     
