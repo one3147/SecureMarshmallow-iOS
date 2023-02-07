@@ -12,8 +12,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 //        let errorViewController = ErrorViewController()
         let settingViewController = SettingViewController()
+        let CharacterSelectionViewController = CharacterSelectionViewController()
         
-        let rootNavigationController = BaseNC(rootViewController: settingViewController)
+        let rootNavigationController = BaseNC(rootViewController: CharacterSelectionViewController)
         
         self.window?.rootViewController = rootNavigationController
         self.window?.makeKeyAndVisible()

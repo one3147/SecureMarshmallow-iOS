@@ -93,8 +93,8 @@ class CharacterSelectionViewController: ViewController {
                 print("데이터불러오기 성공")
                 cell.layout()
                 cell.imageView.backgroundColor = .gray
-                cell.layer.cornerRadius = 250
-//                cell.animateBorderGradation()
+//                cell.layer.cornerRadius = 100
+                cell.layer.cornerRadius = 200
                 
                 if index == 0 {
                     cell.titleLabel.text = "🐻‍❄️"
