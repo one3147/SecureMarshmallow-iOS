@@ -12,7 +12,7 @@ import Then
 class CompleteViewController: UIViewController {
     
     private lazy var backgroundView = UIView().then {
-        $0.layer.cornerRadius = 100
+        $0.layer.cornerRadius = 100 * (view.frame.width / 430)
     }
     
     private lazy var emojiCharacter = UILabel().then {
@@ -37,7 +37,7 @@ class CompleteViewController: UIViewController {
         $0.setTitleColor(UIColor(ciColor: .black), for: .normal)
         $0.titleLabel?.font = .systemFont(ofSize: 20.0, weight: .bold)
         $0.backgroundColor = .white
-        $0.layer.cornerRadius = 25
+        $0.layer.cornerRadius = 25 * (view.frame.width / 430)
         $0.layer.borderWidth = 0.0
     }
     

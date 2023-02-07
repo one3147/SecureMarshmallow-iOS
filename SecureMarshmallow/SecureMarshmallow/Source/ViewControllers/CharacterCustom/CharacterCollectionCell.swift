@@ -18,9 +18,10 @@ class CharacterCollectionCell: UICollectionViewCell {
         $0.backgroundColor = .black
         $0.layer.borderWidth = 3.0
         $0.layer.borderColor = UIColor.gray.cgColor
+//        $0.layer.cornerRadius = 55 * ($0.frame.width)
         //        $0.layer.cornerRadius = Constants.cornerRadius
-        $0.layer.cornerRadius = 55
-        
+//        $0.layer.cornerRadius = 55 * ($0.frame.height / 430)
+//        view.frame.width / 430
     }
     
     var titleLabel = UILabel().then {

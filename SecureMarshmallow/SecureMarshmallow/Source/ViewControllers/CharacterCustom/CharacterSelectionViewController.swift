@@ -22,7 +22,7 @@ class CharacterSelectionViewController: ViewController {
     
     private lazy var backgroundView = UIView().then {
         $0.backgroundColor = .gray
-        $0.layer.cornerRadius = 70
+        $0.layer.cornerRadius = 70 * (view.frame.width / 430)
     }
     
     private lazy var emojiCharacter = UILabel().then {
@@ -40,7 +40,7 @@ class CharacterSelectionViewController: ViewController {
         $0.setTitleColor(UIColor(ciColor: .white), for: .normal)
         $0.titleLabel?.font = .systemFont(ofSize: 20.0, weight: .bold)
         $0.backgroundColor = .white
-        $0.layer.cornerRadius = 30
+        $0.layer.cornerRadius = 30  * (view.frame.width / 430)
         $0.layer.borderWidth = 0.0
         
         $0.rx.tap
@@ -56,7 +56,7 @@ class CharacterSelectionViewController: ViewController {
         $0.setTitleColor(UIColor(ciColor: .white), for: .normal)
         $0.titleLabel?.font = .systemFont(ofSize: 20.0, weight: .bold)
         $0.backgroundColor = .white
-        $0.layer.cornerRadius = 30
+        $0.layer.cornerRadius = 30  * (view.frame.width / 430)
         $0.layer.borderWidth = 0.0
         
         $0.rx.tap
@@ -112,7 +112,8 @@ class CharacterSelectionViewController: ViewController {
                     print("CharacterCollectionCell 데이터불러오기 성공")
                     cell.layout()
                     cell.imageView.backgroundColor = .gray
-                    cell.layer.cornerRadius = 200
+                    cell.imageView.layer.cornerRadius = 55 * (self.view.frame.width / 430)
+                    cell.layer.cornerRadius = 200  * (self.view.frame.width / 430)
                     
                     if self.charOrBack == true {
                         if index == 0 {
@@ -178,10 +179,14 @@ class CharacterSelectionViewController: ViewController {
             collectionView
         ].forEach { view.addSubview($0) }
         
+        let width = view.frame.width / 430
+        let height = view.frame.height / 932
+        
         backgroundView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.centerX.equalToSuperview()
-            $0.height.width.equalTo(140.0)
+            $0.height.equalTo(140.0 * height)
+            $0.width.equalTo(140.0 * width)
         }
         
         emojiCharacter.snp.makeConstraints {
@@ -190,27 +195,27 @@ class CharacterSelectionViewController: ViewController {
         }
         
         askingLable.snp.makeConstraints {
-            $0.top.equalTo(backgroundView.snp.bottom).offset(20.0)
+            $0.top.equalTo(backgroundView.snp.bottom).offset(20.0 * height)
             $0.centerX.equalTo(backgroundView.snp.centerX)
         }
         
         characterButton.snp.makeConstraints {
-            $0.top.equalTo(askingLable.snp.bottom).offset(25.0)
-            $0.leading.equalToSuperview().inset(30.0)
-            $0.height.equalTo(60.0)
-            $0.width.equalTo(180.0)
+            $0.top.equalTo(askingLable.snp.bottom).offset(25.0 * height)
+            $0.leading.equalToSuperview().inset(30.0 * width)
+            $0.height.equalTo(60.0 * height)
+            $0.width.equalTo(180.0 * width)
         }
         
         backgroundButton.snp.makeConstraints {
             $0.top.equalTo(characterButton.snp.top)
-            $0.trailing.equalToSuperview().inset(30.0)
+            $0.trailing.equalToSuperview().inset(30.0 * width)
             $0.height.equalTo(characterButton.snp.height)
             $0.width.equalTo(characterButton.snp.width)
         }
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(backgroundButton.snp.bottom).offset(52.0)
+            $0.top.equalTo(backgroundButton.snp.bottom).offset(52.0 * height)
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(40)
+            $0.bottom.equalToSuperview().inset(40 * height)
         }
     }
     
