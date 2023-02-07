@@ -32,6 +32,8 @@
 		0EA0A56D2991234B00652588 /* CharacterCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0A56C2991234B00652588 /* CharacterCollectionCell.swift */; };
 		0EA0A56F2992338200652588 /* BaseAbstractCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0A56E2992338200652588 /* BaseAbstractCharacter.swift */; };
 		0EA0A572299234D400652588 /* BackgroundCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0A571299234D400652588 /* BackgroundCollectionCell.swift */; };
+		0EA0A57429923D6000652588 /* CharacterSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0A57329923D6000652588 /* CharacterSelectionView.swift */; };
+		0EA0A57629923D6B00652588 /* BackgroundSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0A57529923D6B00652588 /* BackgroundSelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		0EA0A56C2991234B00652588 /* CharacterCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionCell.swift; sourceTree = "<group>"; };
 		0EA0A56E2992338200652588 /* BaseAbstractCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAbstractCharacter.swift; sourceTree = "<group>"; };
 		0EA0A571299234D400652588 /* BackgroundCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionCell.swift; sourceTree = "<group>"; };
+		0EA0A57329923D6000652588 /* CharacterSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionView.swift; sourceTree = "<group>"; };
+		0EA0A57529923D6B00652588 /* BackgroundSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSelectionView.swift; sourceTree = "<group>"; };
 		39C9BCDA191053BEE21788B0 /* Pods-SecureMarshmallow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecureMarshmallow.release.xcconfig"; path = "Target Support Files/Pods-SecureMarshmallow/Pods-SecureMarshmallow.release.xcconfig"; sourceTree = "<group>"; };
 		57D3FD8905F462A788D2F5C3 /* Pods-SecureMarshmallow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecureMarshmallow.debug.xcconfig"; path = "Target Support Files/Pods-SecureMarshmallow/Pods-SecureMarshmallow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				0E25F9AD298A8F0F008D2DE4 /* StoryViewController.swift */,
+				0EA0A57329923D6000652588 /* CharacterSelectionView.swift */,
+				0EA0A57529923D6B00652588 /* BackgroundSelectionView.swift */,
 			);
 			name = test;
 			path = Story;
@@ -392,6 +398,8 @@
 				0E25F9B3298B8C98008D2DE4 /* SettingTableViewCell.swift in Sources */,
 				0E25F9B5298B9C78008D2DE4 /* SwitchTableViewCell.swift in Sources */,
 				0E25F9AE298A8F0F008D2DE4 /* StoryViewController.swift in Sources */,
+				0EA0A57429923D6000652588 /* CharacterSelectionView.swift in Sources */,
+				0EA0A57629923D6B00652588 /* BackgroundSelectionView.swift in Sources */,
 				0E4D5A1F296B8DAB00265762 /* TimeInterval+Extension.swift in Sources */,
 				0E4D5A21296B8DDA00265762 /* Int+Extension.swift in Sources */,
 				0EA0A5632991137D00652588 /* CharacterSelectionViewController.swift in Sources */,

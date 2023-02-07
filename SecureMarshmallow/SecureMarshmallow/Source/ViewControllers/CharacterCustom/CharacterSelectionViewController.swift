@@ -14,6 +14,9 @@ import RxSwift
 class CharacterSelectionViewController: ViewController {
     
     var userEmoji: String = ""
+    var userBackground = UIColor()
+//    static var charOrBack: Bool = true
+    var charOrBack = true
     
     var array = ["0","1","2","3","4","5","6","7","8"]
     let sectionInsets = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
@@ -40,6 +43,12 @@ class CharacterSelectionViewController: ViewController {
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 30
         $0.layer.borderWidth = 0.0
+        
+        $0.rx.tap
+            .bind {
+                self.charOrBack = true
+                print("true")
+            }
     }
     
     private lazy var backgroundButton = RadioButton().then {
@@ -49,6 +58,12 @@ class CharacterSelectionViewController: ViewController {
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 30
         $0.layer.borderWidth = 0.0
+        
+        $0.rx.tap
+            .bind {
+                self.charOrBack = false
+                print("false")
+            }
     }
     
     var collectionView : UICollectionView = {
@@ -61,6 +76,7 @@ class CharacterSelectionViewController: ViewController {
         cv.backgroundColor = .clear
         
         cv.register(CharacterCollectionCell.self, forCellWithReuseIdentifier: CharacterCollectionCell.identifier)
+        cv.register(BackgroundCollectionCell.self, forCellWithReuseIdentifier: BackgroundCollectionCell.identifier)
         return cv
     }()
     
@@ -69,7 +85,10 @@ class CharacterSelectionViewController: ViewController {
         
         characterButton.isSelected = true
         backgroundButton.isSelected = false
+        
+        userBackground = .gray
         emojiCharacter.text = "🐰"
+
     }
     
     override func viewDidLoad() {
@@ -86,36 +105,70 @@ class CharacterSelectionViewController: ViewController {
         
         print("구독은 됨")
         
-        data.asObservable()
-            .bind(to: self.collectionView.rx
-                .items(cellIdentifier: CharacterCollectionCell.identifier, cellType: CharacterCollectionCell.self)
-            ) { index, recommend, cell in
-                print("데이터불러오기 성공")
-                cell.layout()
-                cell.imageView.backgroundColor = .gray
-//                cell.layer.cornerRadius = 100
-                cell.layer.cornerRadius = 200
-                
-                if index == 0 {
-                    cell.titleLabel.text = "🐻‍❄️"
-                } else if index == 1 {
-                    cell.titleLabel.text = "🦁"
-                } else if index == 2 {
-                    cell.titleLabel.text = "🐵"
-                } else if index == 3 {
-                    cell.titleLabel.text = "🐭"
-                } else if index == 4 {
-                    cell.titleLabel.text = "🐰"
-                } else if index == 5 {
-                    cell.titleLabel.text = "🐸"
-                } else if index == 6 {
-                    cell.titleLabel.text = "🐱"
-                } else if index == 7 {
-                    cell.titleLabel.text = "🐶"
-                } else{
-                    cell.titleLabel.text = "🐼"
+        if self.charOrBack == true {
+            data.asObservable()
+                .bind(to: self.collectionView.rx
+                    .items(cellIdentifier: CharacterCollectionCell.identifier, cellType: CharacterCollectionCell.self)
+                ) { index, recommend, cell in
+                    print("CharacterCollectionCell 데이터불러오기 성공")
+                    cell.layout()
+                    cell.imageView.backgroundColor = .gray
+                    cell.layer.cornerRadius = 200
+                    
+                    if index == 0 {
+                        cell.titleLabel.text = "🐻‍❄️"
+                    } else if index == 1 {
+                        cell.titleLabel.text = "🦁"
+                    } else if index == 2 {
+                        cell.titleLabel.text = "🐵"
+                    } else if index == 3 {
+                        cell.titleLabel.text = "🐭"
+                    } else if index == 4 {
+                        cell.titleLabel.text = "🐰"
+                    } else if index == 5 {
+                        cell.titleLabel.text = "🐸"
+                    } else if index == 6 {
+                        cell.titleLabel.text = "🐱"
+                    } else if index == 7 {
+                        cell.titleLabel.text = "🐶"
+                    } else{
+                        cell.titleLabel.text = "🐼"
+                    }
                 }
-            }
+        }
+        
+        if self.charOrBack == false {
+            data.asObservable()
+                .bind(to: self.collectionView.rx
+                    .items(cellIdentifier: BackgroundCollectionCell.identifier, cellType: BackgroundCollectionCell.self)
+                ) { index, recommend, cell in
+                    print("BackgroundCollectionCell 데이터불러오기 성공")
+                    cell.layout()
+                    cell.imageView.backgroundColor = .gray
+                    cell.layer.cornerRadius = 200
+                    
+                    if index == 0 {
+                        cell.imageView.backgroundColor = .gray
+                    } else if index == 1 {
+                        cell.imageView.backgroundColor = .black
+                    } else if index == 2 {
+                        cell.imageView.backgroundColor = .orange
+                    } else if index == 3 {
+                        cell.imageView.backgroundColor = .red
+                    } else if index == 4 {
+                        cell.imageView.backgroundColor = .blue
+                    } else if index == 5 {
+                        cell.imageView.backgroundColor = .yellow
+                    } else if index == 6 {
+                        cell.imageView.backgroundColor = .green
+                    } else if index == 7 {
+                        cell.imageView.backgroundColor = .systemPink
+                    } else{
+                        cell.imageView.backgroundColor = .purple
+                    }
+                }
+            print("없음")
+        }
     }
     
     func layout() {
@@ -198,25 +251,48 @@ extension CharacterSelectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("\(indexPath.row)가 눌렸어")
-        if indexPath.row == 0 {
-            userEmoji = "🐻‍❄️"
-        } else if indexPath.row == 1 {
-            userEmoji = "🦁"
-        } else if indexPath.row == 2 {
-            userEmoji = "🐵"
-        } else if indexPath.row == 3 {
-            userEmoji = "🐭"
-        } else if indexPath.row == 4 {
-            userEmoji = "🐰"
-        } else if indexPath.row == 5 {
-            userEmoji = "🐸"
-        } else if indexPath.row == 6 {
-            userEmoji = "🐱"
-        } else if indexPath.row == 7 {
-            userEmoji = "🐶"
+        if self.charOrBack == true {
+            if indexPath.row == 0 {
+                userEmoji = "🐻‍❄️"
+            } else if indexPath.row == 1 {
+                userEmoji = "🦁"
+            } else if indexPath.row == 2 {
+                userEmoji = "🐵"
+            } else if indexPath.row == 3 {
+                userEmoji = "🐭"
+            } else if indexPath.row == 4 {
+                userEmoji = "🐰"
+            } else if indexPath.row == 5 {
+                userEmoji = "🐸"
+            } else if indexPath.row == 6 {
+                userEmoji = "🐱"
+            } else if indexPath.row == 7 {
+                userEmoji = "🐶"
+            } else {
+                userEmoji = "🐼"
+            }
+            emojiCharacter.text = userEmoji
         } else {
-            userEmoji = "🐼"
+            if indexPath.row == 0 {
+                userBackground = .gray
+            } else if indexPath.row == 1 {
+                userBackground = .black
+            } else if indexPath.row == 2 {
+                userBackground = .orange
+            } else if indexPath.row == 3 {
+                userBackground = .red
+            } else if indexPath.row == 4 {
+                userBackground = .blue
+            } else if indexPath.row == 5 {
+                userBackground = .yellow
+            } else if indexPath.row == 6 {
+                userBackground = .green
+            } else if indexPath.row == 7 {
+                userBackground = .systemPink
+            } else {
+                userBackground = .purple
+            }
+            backgroundView.backgroundColor = userBackground
         }
-        emojiCharacter.text = userEmoji
     }
 }

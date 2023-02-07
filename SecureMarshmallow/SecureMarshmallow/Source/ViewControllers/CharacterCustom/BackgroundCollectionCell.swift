@@ -19,7 +19,6 @@ class BackgroundCollectionCell: UICollectionViewCell {
         $0.layer.borderWidth = 3.0
         $0.layer.borderColor = UIColor.gray.cgColor
         $0.layer.cornerRadius = 55
-        
     }
     
     var titleLabel = UILabel().then {
