@@ -13,8 +13,8 @@ import RxSwift
 
 class CharacterSelectionViewController: ViewController {
     
-    var userEmoji: String = ""
-    var userBackground = UIColor()
+    static var userEmoji: String = ""
+    static var userBackground = UIColor()
     var charOrBack = true
     
     var array = ["0","1","2","3","4","5","6","7","8"]
@@ -86,7 +86,7 @@ class CharacterSelectionViewController: ViewController {
         characterButton.isSelected = true
         backgroundButton.isSelected = false
         
-        userBackground = .gray
+        CharacterSelectionViewController.userBackground = .gray
         emojiCharacter.text = "🐰"
 
     }
@@ -137,31 +137,31 @@ class CharacterSelectionViewController: ViewController {
                     }
                     if self.charOrBack == false {
                         if index == 0 {
-                            cell.titleLabel.text = self.userEmoji
+                            cell.titleLabel.text = CharacterSelectionViewController.userEmoji
                             cell.imageView.backgroundColor = .gray
                         } else if index == 1 {
-                            cell.titleLabel.text = self.userEmoji
+                            cell.titleLabel.text = CharacterSelectionViewController.userEmoji
                             cell.imageView.backgroundColor = .black
                         } else if index == 2 {
-                            cell.titleLabel.text = self.userEmoji
+                            cell.titleLabel.text = CharacterSelectionViewController.userEmoji
                             cell.imageView.backgroundColor = .orange
                         } else if index == 3 {
-                            cell.titleLabel.text = self.userEmoji
+                            cell.titleLabel.text = CharacterSelectionViewController.userEmoji
                             cell.imageView.backgroundColor = .red
                         } else if index == 4 {
-                            cell.titleLabel.text = self.userEmoji
+                            cell.titleLabel.text = CharacterSelectionViewController.userEmoji
                             cell.imageView.backgroundColor = .blue
                         } else if index == 5 {
-                            cell.titleLabel.text = self.userEmoji
+                            cell.titleLabel.text = CharacterSelectionViewController.userEmoji
                             cell.imageView.backgroundColor = .yellow
                         } else if index == 6 {
-                            cell.titleLabel.text = self.userEmoji
+                            cell.titleLabel.text = CharacterSelectionViewController.userEmoji
                             cell.imageView.backgroundColor = .green
                         } else if index == 7 {
-                            cell.titleLabel.text = self.userEmoji
+                            cell.titleLabel.text = CharacterSelectionViewController.userEmoji
                             cell.imageView.backgroundColor = .systemPink
                         } else{
-                            cell.titleLabel.text = self.userEmoji
+                            cell.titleLabel.text = CharacterSelectionViewController.userEmoji
                             cell.imageView.backgroundColor = .purple
                         }
                     }
@@ -224,7 +224,13 @@ class CharacterSelectionViewController: ViewController {
         bar.shadowImage = UIImage()
         bar.isTranslucent = true
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(completeEvent))
+    }
+    
+    @objc
+    func completeEvent() {
+        print("완료했습니다")
+        self.navigationController?.pushViewController(CompleteViewController(), animated: true)
     }
 }
 
@@ -250,46 +256,46 @@ extension CharacterSelectionViewController: UICollectionViewDelegateFlowLayout {
         print("\(indexPath.row)가 눌렸어")
         if self.charOrBack == true {
             if indexPath.row == 0 {
-                userEmoji = "🐻‍❄️"
+                CharacterSelectionViewController.userEmoji = "🐻‍❄️"
             } else if indexPath.row == 1 {
-                userEmoji = "🦁"
+                CharacterSelectionViewController.userEmoji = "🦁"
             } else if indexPath.row == 2 {
-                userEmoji = "🐵"
+                CharacterSelectionViewController.userEmoji = "🐵"
             } else if indexPath.row == 3 {
-                userEmoji = "🐭"
+                CharacterSelectionViewController.userEmoji = "🐭"
             } else if indexPath.row == 4 {
-                userEmoji = "🐰"
+                CharacterSelectionViewController.userEmoji = "🐰"
             } else if indexPath.row == 5 {
-                userEmoji = "🐸"
+                CharacterSelectionViewController.userEmoji = "🐸"
             } else if indexPath.row == 6 {
-                userEmoji = "🐱"
+                CharacterSelectionViewController.userEmoji = "🐱"
             } else if indexPath.row == 7 {
-                userEmoji = "🐶"
+                CharacterSelectionViewController.userEmoji = "🐶"
             } else {
-                userEmoji = "🐼"
+                CharacterSelectionViewController.userEmoji = "🐼"
             }
-            emojiCharacter.text = userEmoji
+            emojiCharacter.text = CharacterSelectionViewController.userEmoji
         } else {
             if indexPath.row == 0 {
-                userBackground = .gray
+                CharacterSelectionViewController.userBackground = .gray
             } else if indexPath.row == 1 {
-                userBackground = .black
+                CharacterSelectionViewController.userBackground = .black
             } else if indexPath.row == 2 {
-                userBackground = .orange
+                CharacterSelectionViewController.userBackground = .orange
             } else if indexPath.row == 3 {
-                userBackground = .red
+                CharacterSelectionViewController.userBackground = .red
             } else if indexPath.row == 4 {
-                userBackground = .blue
+                CharacterSelectionViewController.userBackground = .blue
             } else if indexPath.row == 5 {
-                userBackground = .yellow
+                CharacterSelectionViewController.userBackground = .yellow
             } else if indexPath.row == 6 {
-                userBackground = .green
+                CharacterSelectionViewController.userBackground = .green
             } else if indexPath.row == 7 {
-                userBackground = .systemPink
+                CharacterSelectionViewController.userBackground = .systemPink
             } else {
-                userBackground = .purple
+                CharacterSelectionViewController.userBackground = .purple
             }
-            backgroundView.backgroundColor = userBackground
+            backgroundView.backgroundColor = CharacterSelectionViewController.userBackground
         }
     }
 }
