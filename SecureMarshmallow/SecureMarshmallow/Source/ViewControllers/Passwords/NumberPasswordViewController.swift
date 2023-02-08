@@ -74,7 +74,34 @@ final class NumberPasswordViewController: UIViewController {
             ) { index, recommend, cell in
                 print("NumberPasswordCollectionViewCell 데이터불러오기 성공")
                 cell.layout()
-                cell.imageView.backgroundColor = .gray
+                cell.imageView.backgroundColor = .black
+                
+                if index == 0 {
+                    cell.numberLabel.text = "1"
+                } else if index == 1 {
+                    cell.numberLabel.text = "2"
+                } else if index == 2 {
+                    cell.numberLabel.text = "3"
+                } else if index == 3 {
+                    cell.numberLabel.text = "4"
+                } else if index == 4 {
+                    cell.numberLabel.text = "5"
+                } else if index == 5 {
+                    cell.numberLabel.text = "6"
+                } else if index == 6 {
+                    cell.numberLabel.text = "7"
+                } else if index == 7 {
+                    cell.numberLabel.text = "8"
+                } else if index == 8{
+                    cell.numberLabel.text = "9"
+                }  else if index == 9 {
+                    cell.numberLabel.font = .systemFont(ofSize: 30.0, weight: .semibold)
+                    cell.numberLabel.text = "완료"
+                } else if index == 10 {
+                    cell.numberLabel.text = "0"
+                } else {
+                    cell.numberLabel.text = "<-"
+                }
             }
     }
     
@@ -110,7 +137,7 @@ final class NumberPasswordViewController: UIViewController {
         
         collectionView.snp.makeConstraints {
             $0.top.equalTo(seconedTextField.snp.bottom).offset(70.0)
-            $0.leading.trailing.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(25.0)
             $0.bottom.equalToSuperview().inset(98)
         }
     }

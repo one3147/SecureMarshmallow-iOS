@@ -13,15 +13,12 @@ class NumberPasswordCollectionViewCell: UICollectionViewCell {
     static let identifier = "NumberPasswordCollectionViewCell"
     
     var imageView = UIView().then {
-        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = .black
-        $0.layer.borderWidth = 3.0
-        $0.layer.borderColor = UIColor.gray.cgColor
     }
     
     var numberLabel = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.font = .systemFont(ofSize: 80.0, weight: .black)
+        $0.font = .systemFont(ofSize: 40.0, weight: .black)
         $0.text = ""
     }
     
