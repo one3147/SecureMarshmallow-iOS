@@ -187,15 +187,16 @@ extension NumberPasswordViewController: UICollectionViewDelegateFlowLayout {
         } else if index == 8{
             textFieldInputData.append("9")
         }  else if index == 9 {
-//            textFieldInputData + "완료"
+            print("완료 버튼 클릭")
+            print("\(seconedTextField.text!)")
         } else if index == 10 {
             textFieldInputData.append("0")
         } else {
-//            cell.numberLabel.text = "<-"
+            textFieldInputData.removeLast()
         }
         let joinData = textFieldInputData.map { String($0) }.joined()
-        print(textFieldInputData)
-        print("joinData: \(joinData)")
+//        print(textFieldInputData)
+//        print("joinData: \(joinData)")
         seconedTextField.text = joinData
     }
 }
