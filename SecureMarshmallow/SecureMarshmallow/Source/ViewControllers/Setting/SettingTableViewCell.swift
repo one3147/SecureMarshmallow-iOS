@@ -24,6 +24,7 @@ class SettingTableViewCell: UITableViewCell {
     
     private let label = UILabel().then {
         $0.numberOfLines = 1
+        $0.font = .systemFont(ofSize: 40.0, weight: .black)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

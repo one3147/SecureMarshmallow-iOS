@@ -16,6 +16,8 @@ final class NumberPasswordViewController: UIViewController {
     var array = ["0","1","2","3","4","5","6","7","8","9","10","11"]
     let cellMarginSize: CGFloat = 10.0
     
+    var textFieldInputData: [String] = []
+    
     let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.5),
                       .font : UIFont.systemFont(ofSize: 14, weight: .bold)]
     
@@ -32,10 +34,6 @@ final class NumberPasswordViewController: UIViewController {
     }
     
     internal lazy var seconedTextField = UITextField().then {
-        $0.borderStyle = UITextField.BorderStyle.none
-        $0.returnKeyType = UIReturnKeyType.done
-        $0.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        $0.leftViewMode = .always
         $0.textColor = .white
         $0.textAlignment = .center
         $0.font = .systemFont(ofSize: 50.0, weight: .bold)
@@ -61,7 +59,7 @@ final class NumberPasswordViewController: UIViewController {
         view.backgroundColor = .black
         seconedTextField.isSecureTextEntry = true
         seconedTextField.isUserInteractionEnabled = false
-        seconedTextField.text = "아아아아아아"
+        
         layout()
         
         collectionView.delegate = self
@@ -103,6 +101,8 @@ final class NumberPasswordViewController: UIViewController {
                     cell.numberLabel.text = "<-"
                 }
             }
+        
+        collectionView.reloadData()
     }
     
     func layout() {
@@ -164,6 +164,38 @@ extension NumberPasswordViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("\(indexPath.row)가 눌렸어")
+        print("\(indexPath.row)번 클릭")
+        
+        let index = indexPath.row
+        if index == 0 {
+//            self.seconedTextField.text = "1"
+            textFieldInputData.append("1")
+        } else if index == 1 {
+            textFieldInputData.append("2")
+        } else if index == 2 {
+            textFieldInputData.append("3")
+        } else if index == 3 {
+            textFieldInputData.append("4")
+        } else if index == 4 {
+            textFieldInputData.append("5")
+        } else if index == 5 {
+            textFieldInputData.append("6")
+        } else if index == 6 {
+            textFieldInputData.append("7")
+        } else if index == 7 {
+            textFieldInputData.append("8")
+        } else if index == 8{
+            textFieldInputData.append("9")
+        }  else if index == 9 {
+//            textFieldInputData + "완료"
+        } else if index == 10 {
+            textFieldInputData.append("0")
+        } else {
+//            cell.numberLabel.text = "<-"
+        }
+        let joinData = textFieldInputData.map { String($0) }.joined()
+        print(textFieldInputData)
+        print("joinData: \(joinData)")
+        seconedTextField.text = joinData
     }
 }
