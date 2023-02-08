@@ -192,7 +192,11 @@ extension NumberPasswordViewController: UICollectionViewDelegateFlowLayout {
         } else if index == 10 {
             textFieldInputData.append("0")
         } else {
-            textFieldInputData.removeLast()
+            if textFieldInputData.isEmpty {
+                print("값이 없음")
+            } else {
+                textFieldInputData.removeLast()
+            }
         }
         let joinData = textFieldInputData.map { String($0) }.joined()
 //        print(textFieldInputData)
